@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using ExcelSolution.Code;
 using NUnit.Framework;
+using Moq;
 using Excel = Microsoft.Office.Interop.Excel;
-
+using System.ComponentModel;
 
 namespace ExcelSolution.UnitTests
 {
@@ -14,29 +15,34 @@ namespace ExcelSolution.UnitTests
     [TestFixture]
     public class ExcelChartAppTests
     {
+        private ExcelChartApp chartApplication = new ExcelChartApp();
+
+        [SetUp]
+        public void OpenExcelApp()
+        {
+            ExcelChartApp chartApplication = new ExcelChartApp();
+        }
+
         [Test]
         public void InitializeExcel_SampleData_ExcelIsNotVisible()
         {
-            ExcelChartApp chartApplication = new ExcelChartApp();
             chartApplication.InitializeExcel();
             Assert.IsFalse(chartApplication.Visible);
         }
 
         [Test]
-        public void CloseExcel_Default_AppIsNull()
+        public void CloseExcel_AppHasBeenInitialized_AppIsNull()
         {
-            ExcelChartApp chartApplication = new ExcelChartApp();
+
+            chartApplication.InitializeExcel();
             chartApplication.CloseExcel();
             Assert.IsFalse(chartApplication.IsOpen);
         }
-    }
-    [TestFixture]
-    public class WorkBookTests
-    {
-        [Test]
-        public void InitializeBook_DBpath_SheetCountOfThree()
+        
+        [TearDown]
+        public void CloseExcelApp()
         {
-
+            chartApplication.CloseExcel();
         }
     }
 }

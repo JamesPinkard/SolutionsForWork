@@ -4,3 +4,9 @@ C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution
 C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution\obj\Debug\ExcelSolution.Code.dll
 C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution\obj\Debug\ExcelSolution.Code.pdb
 C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution\obj\Debug\ExcelSolution.Code.csprojResolveAssemblyReference.cache
+C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution\bin\Debug\ExcelSolution.Code.dll
+C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution\bin\Debug\ExcelSolution.Code.pdb
+C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution\obj\Debug\ExcelSolution.Code.csprojResolveAssemblyReference.cache
+C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution\obj\Debug\ExcelSolution.Code.csproj.ResolveComReference.cache
+C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution\obj\Debug\ExcelSolution.Code.dll
+C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution\obj\Debug\ExcelSolution.Code.pdb
