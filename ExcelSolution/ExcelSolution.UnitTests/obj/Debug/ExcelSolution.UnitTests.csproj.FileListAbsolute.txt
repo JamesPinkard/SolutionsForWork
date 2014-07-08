@@ -1,0 +1,13 @@
+C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\obj\Debug\ExcelSolution.UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\ExcelSolution.UnitTests.dll
+C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\ExcelSolution.UnitTests.pdb
+C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\nunit.framework.dll
+C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\nunit.util.dll
+C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\nunit.core.interfaces.dll
+C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\nunit.core.dll
+C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\obj\Debug\ExcelSolution.UnitTests.dll
+C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\obj\Debug\ExcelSolution.UnitTests.pdb
+C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\ExcelSolution.Code.dll
+C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\ExcelSolution.Code.pdb
+C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\obj\Debug\ExcelSolution.UnitTests.csproj.ResolveComReference.cache
