@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1000]C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests.nunit</TopNode>
-  <SelectedNode>[0-1004]ExcelSolution.UnitTests.WorkBookTests</SelectedNode>
+  <TopNode>[0-1000]C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests.nunit</TopNode>
+  <SelectedNode>[0-1001]ExcelSolution.UnitTests.ExcelChartAppTests</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
-    <Node UniqueName="[0-1000]C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests.nunit" Expanded="true" />
-    <Node UniqueName="[0-1006]C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\ExcelSolution.UnitTests.dll" Expanded="true" />
-    <Node UniqueName="[0-1007]ExcelSolution" Expanded="true" />
-    <Node UniqueName="[0-1008]ExcelSolution.UnitTests" Expanded="true" />
+    <Node UniqueName="[0-1000]C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests.nunit" Expanded="true" />
+    <Node UniqueName="[0-1004]C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\ExcelSolution.UnitTests.dll" Expanded="true" />
+    <Node UniqueName="[0-1005]ExcelSolution" Expanded="true" />
+    <Node UniqueName="[0-1006]ExcelSolution.UnitTests" Expanded="true" />
     <Node UniqueName="[0-1001]ExcelSolution.UnitTests.ExcelChartAppTests" Expanded="true" />
-    <Node UniqueName="[0-1004]ExcelSolution.UnitTests.WorkBookTests" Expanded="true" />
   </Nodes>
 </VisualState>

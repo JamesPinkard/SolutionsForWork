@@ -42,6 +42,7 @@
     <Compile Include="ExcelChartApp.cs" />
     <Compile Include="Example\Employee.cs" />
     <Compile Include="Example\MyExcel.cs" />
+    <Compile Include="ExcelWriter.cs" />
     <Compile Include="IExcelApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -24,10 +24,10 @@ namespace ExcelSolution.UnitTests
         }
 
         [Test]
-        public void InitializeExcel_SampleData_ExcelIsNotVisible()
+        public void InitializeExcel_SampleData_ExcelIsNotOpen()
         {
             chartApplication.InitializeExcel();
-            Assert.IsFalse(chartApplication.Visible);
+            Assert.IsTrue(chartApplication.IsOpen);
         }
 
         [Test]

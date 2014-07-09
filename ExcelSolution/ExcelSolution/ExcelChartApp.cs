@@ -12,18 +12,17 @@ namespace ExcelSolution.Code
     public class ExcelChartApp: IExcelApp
     {
         public bool IsOpen { get; private set; }
-        private static Excel.Application MyApp = null;
-        public static string DB_PATH = @"";
+        private static Excel.Application MyApp = null;        
         private static Excel.Workbook MyBook = null;
         private static Excel.Worksheet MySheet = null;
-        private static int lastRow=0;       
+             
         
         public void InitializeExcel()
         {
             MyApp = new Excel.Application();
             MyApp.Visible = false;
-            MySheet = (Excel.Worksheet)MyBook.Sheets[1]; // Explict cast is not required here
-            lastRow = MySheet.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Row;
+            MyBook = MyApp.Workbooks.Add();
+            MySheet = (Excel.Worksheet)MyBook.Sheets[1]; // Explict cast is not required here            
             IsOpen = true;
         }
         public void CloseExcel()

@@ -10,7 +10,6 @@ namespace ExcelSolution.Code
     public interface IExcelApp
     {
         bool IsOpen { get; }
-        Excel.Application MyApp { get; }
 
         void InitializeExcel();
         void CloseExcel();

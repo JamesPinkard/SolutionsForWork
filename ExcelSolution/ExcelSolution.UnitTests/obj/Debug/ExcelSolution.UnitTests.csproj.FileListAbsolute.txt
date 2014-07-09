@@ -25,3 +25,17 @@ C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.
 C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\Moq.dll
 C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\Moq.pdb
 C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\Moq.xml
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\ExcelSolution.UnitTests.dll
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\ExcelSolution.UnitTests.pdb
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\ExcelSolution.Code.dll
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\Moq.dll
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\nunit.core.interfaces.dll
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\nunit.core.dll
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\ExcelSolution.Code.pdb
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\Moq.pdb
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\Moq.xml
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\obj\Debug\ExcelSolution.UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\obj\Debug\ExcelSolution.UnitTests.csproj.ResolveComReference.cache
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\obj\Debug\ExcelSolution.UnitTests.dll
+C:\Users\James\Documents\GitHub\SolutionsForWork\ExcelSolution\ExcelSolution.UnitTests\obj\Debug\ExcelSolution.UnitTests.pdb
