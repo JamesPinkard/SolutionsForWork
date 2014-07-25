@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reader.FieldReaders
+namespace Reader.ProCode
 {
-    public interface Reader
+    public interface IFieldCommand
     {
+        void Execute();
     }
 }

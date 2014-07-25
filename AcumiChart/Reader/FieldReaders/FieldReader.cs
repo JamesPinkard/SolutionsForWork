@@ -4,9 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reader
+namespace Reader.ProCode
 {
-    abstract public class FieldReader
+    abstract public class FieldReader: FieldCommand
     {
+        public string Source { get; set; }
+
+        public FieldReader()
+        {
+
+        }
+        public void Execute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
