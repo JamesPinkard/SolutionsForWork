@@ -1,0 +1,41 @@
+﻿<Window x:Class="FileLinkTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <TabControl>
+        <TabItem Header="Testing">
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Height="320">
+                    <Button x:Name="btnCopyLink" Content="Copy Link" Click="copyLink"/>
+                    <Hyperlink x:Name="myHypLink" NavigateUri="http://www.google.com" RequestNavigate="Hyperlink_RequestNavigate">
+                        <Run Text="Click here"/>
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock>
+            
+                </TextBlock>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Hyperlink Doc">
+            <StackPanel>
+                <ToolBar>                    
+                    <Button x:Name="btnSaveDoc" BorderBrush="Blue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                Content="Save Doc" Width="75"/>
+                    <Button x:Name="btnLoadDoc" BorderBrush="Blue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                Content="Load Doc" Width="75"/>
+                </ToolBar>
+                <FlowDocumentReader x:Name="myDocumentReader" Height="269.4">
+                    <FlowDocument>
+                        <Section Foreground="Yellow" Background="Black">
+                            <Paragraph FontSize="20">
+                                Hyper links for certain day
+                            </Paragraph>
+                        </Section>
+                        <List x:Name="listOfHyperlinks"/>
+                        <Paragraph x:Name="paraBodyText"/>
+                    </FlowDocument>
+                </FlowDocumentReader>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+</Window>
