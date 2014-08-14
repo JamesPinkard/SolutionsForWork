@@ -11,9 +11,6 @@
                         <Run Text="Click here"/>
                     </Hyperlink>
                 </TextBlock>
-                <TextBlock>
-            
-                </TextBlock>
             </StackPanel>
         </TabItem>
         <TabItem Header="Hyperlink Doc">

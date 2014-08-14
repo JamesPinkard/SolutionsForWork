@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileLinkTracker", "FileLink
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelLinker", "ExcelLinker\ExcelLinker.csproj", "{F03AA823-F183-4205-918F-D46B8C8310E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelLinkerTests", "FileLinkTrackerTests\ExcelLinkerTests.csproj", "{9DB07F3C-9856-4853-85D1-078219007DC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F03AA823-F183-4205-918F-D46B8C8310E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F03AA823-F183-4205-918F-D46B8C8310E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F03AA823-F183-4205-918F-D46B8C8310E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DB07F3C-9856-4853-85D1-078219007DC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DB07F3C-9856-4853-85D1-078219007DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DB07F3C-9856-4853-85D1-078219007DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DB07F3C-9856-4853-85D1-078219007DC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
