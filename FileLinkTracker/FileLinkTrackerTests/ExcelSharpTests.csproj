@@ -7,8 +7,8 @@
     <ProjectGuid>{9DB07F3C-9856-4853-85D1-078219007DC4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FileLinkTrackerTests</RootNamespace>
-    <AssemblyName>FileLinkTrackerTests</AssemblyName>
+    <RootNamespace>ExcelSharpTests</RootNamespace>
+    <AssemblyName>ExcelSharpTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -46,9 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExcelLinker\ExcelLinker.csproj">
+    <ProjectReference Include="..\ExcelLinker\ExcelSharp.csproj">
       <Project>{f03aa823-f183-4205-918f-d46b8c8310e7}</Project>
-      <Name>ExcelLinker</Name>
+      <Name>ExcelSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
