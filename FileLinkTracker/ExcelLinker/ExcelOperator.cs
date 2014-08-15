@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace ExcelSharp
 {
-    public class ExcelOperator
+    public class ExcelOperator : IDisposable
     {
         public static Excel.Application oXL;
         public bool isExcelOpen { get; private set; }        
@@ -76,5 +76,11 @@ namespace ExcelSharp
             oXL.Workbooks.Close();
             oXL.Visible = false;
         }
-	}   
+
+        public void Dispose()
+        {
+            CloseWorkbook();
+            CloseExcel();
+        }
+    }   
 }

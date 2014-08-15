@@ -41,5 +41,13 @@ namespace ExcelSharp
         {
             this.ActiveSheet = oWB.Sheets[sheetsIndex];
         }
+
+
+
+        public Sheet GetSheet(int sheetIndex)
+        {
+            Sheet wbSheet = new Sheet(oWB.Sheets[sheetIndex]);
+            return wbSheet;
+        }
     }
 }

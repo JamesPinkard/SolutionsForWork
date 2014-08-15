@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="ExcelOperatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SheetTests.cs" />
+    <Compile Include="WorkbookTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExcelLinker\ExcelSharp.csproj">
