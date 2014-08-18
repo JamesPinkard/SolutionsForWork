@@ -8,6 +8,7 @@ using ExcelSharp;
 
 namespace ExcelSharpTests
 {
+    [Category("Workbook Tests")]
     [TestFixture]
     class WorkbookTests
     {
@@ -16,7 +17,7 @@ namespace ExcelSharpTests
 
         #region Fixture Setup and Teardown
         [TestFixtureSetUp]
-        public void InitializeExcel()
+        public void InitializeWorkbook()
         {
             testOperator = new ExcelOperator();
             testOperator.InitializeExcel();
@@ -57,7 +58,7 @@ namespace ExcelSharpTests
         }
         
         [Test]
-        public void Workbook_getSheet_ReturnsSheet()
+        public void Workbook_GetSheet_ReturnsSheet()
         {            
             Sheet testSheet = testWorkbook.GetSheet(1);
             Assert.That(testSheet.Index, Is.EqualTo(1));
