@@ -49,7 +49,7 @@ namespace ExcelSharpTests
             setupActiveSheetArray();
             string[,] headerArray = setupHeaderArray();
             string[,] testArray = setupTestArray( 1, 3);
-            Sheet testSheet = setupTestSheet();
+            ReadOnlySheet testSheet = setupTestSheet();
 
             testArray = testSheet.GetCells(1, 3);
 
@@ -62,24 +62,22 @@ namespace ExcelSharpTests
             setupActiveSheetArray();
             string[,] namesArray = setupNamesArray();
             string[,] testArray = setupTestArray(4, 3);
-            Sheet testSheet = setupTestSheet();
+            ReadOnlySheet testSheet = setupTestSheet();
 
             testArray = testSheet.GetRange("A1", "C4");
 
             Assert.That(testArray, Is.EqualTo(namesArray));
         }
-        
-        /*
+                
         [Test]
         public void Sheet_WriteHeaders_FirstRowContainsHeaders()
         {
-            //TODO
-        }
-        */                                 
+        
+        }                                        
         
         #region GetCellsTest Helper Methods
         /// <summary>
-        /// Setup Worksheet with test array values
+        /// Setup Worksheet(index 1) with test array values
         /// </summary>
         private void setupActiveSheetArray()
         {
@@ -88,7 +86,7 @@ namespace ExcelSharpTests
         }
       
         /// <summary>
-        /// Set test array values
+        /// Set test array values with headers and names 
         /// </summary>
         private void setActiveSheetArray()
         {
@@ -135,9 +133,9 @@ namespace ExcelSharpTests
         /// Initialized new test sheet
         /// </summary>
         /// <returns></returns>
-        private Sheet setupTestSheet()
+        private ReadOnlySheet setupTestSheet()
         {
-            Sheet testSheet = testWorkbook.GetSheet(1);
+            ReadOnlySheet testSheet = testWorkbook.GetSheet(1);
             return testSheet;
         }
         #endregion       

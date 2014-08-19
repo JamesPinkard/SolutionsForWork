@@ -7,17 +7,22 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ExcelSharp
 {
-    public class Sheet
+    abstract public class Sheet
     {
         public int Index { get { return worksheet.Index; } }        
-        public Sheet(Excel._Worksheet worksheet )
-        {
-            this.worksheet = worksheet;
-        }                
+        protected SheetWriter sheetWriter;       
         private Excel._Worksheet worksheet;
         private Excel.Range startRange;
         private Excel.Range endRange;
-
+        private Excel._Workbook workbook;
+        private SheetWriter nullWriter;
+        
+        public Sheet(Excel._Worksheet worksheet )
+        {
+            this.worksheet = worksheet;
+            InitializeWriter();
+        }
+        
 
         /// <summary>
             /// Returns the block of cell values
@@ -88,5 +93,7 @@ namespace ExcelSharp
             return cellRange;
         } 
         #endregion
+
+        abstract protected void InitializeWriter();
     }
 }
