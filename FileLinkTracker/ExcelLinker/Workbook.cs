@@ -44,9 +44,9 @@ namespace ExcelSharp
 
 
 
-        public ReadOnlySheet GetSheet(int sheetIndex)
+        public Sheet GetSheet(int sheetIndex)
         {
-            ReadOnlySheet wbSheet = new ReadOnlySheet(oWB.Sheets[sheetIndex]);
+            Sheet wbSheet = new Sheet(oWB.Sheets[sheetIndex]);
             return wbSheet;
         }
     }

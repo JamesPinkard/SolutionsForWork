@@ -59,8 +59,8 @@ namespace ExcelSharpTests
         
         [Test]
         public void Workbook_GetSheet_ReturnsSheet()
-        {
-            ReadOnlySheet testSheet = testWorkbook.GetSheet(1);
+        {            
+            Sheet testSheet = testWorkbook.GetSheet(1);
             Assert.That(testSheet.Index, Is.EqualTo(1));
         }
 
