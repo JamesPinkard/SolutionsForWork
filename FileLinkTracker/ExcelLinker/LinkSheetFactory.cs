@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ExcelSharp
 {
-    public abstract class SheetWriter : ISheetWriter
+    public class LinkSheetFactory : SheetFactory
     {
-        public void WriteFields()
+        public LinkSheetFactory(Workbook workbook) : base (workbook)
+        {
+
+        }
+
+        protected override SheetWriter MakeSheetWriter()
         {
             throw new NotImplementedException();
         }
 
-        public void WriteBody()
+        protected override SheetTools MakeSheetTools()
         {
             throw new NotImplementedException();
         }

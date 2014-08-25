@@ -43,8 +43,8 @@ namespace ExcelSharpTests
         [Test]
         public void Workbook_RemoveSheet_RemovesSheetAtEnd()
         {
-            testWorkbook.AddSheet();
-            testWorkbook.RemoveSheet();
+            testWorkbook.AddSheet();            
+            testWorkbook.RemoveSheet();          
 
             Assert.That(testWorkbook.sheetCount, Is.EqualTo(2));
         }
@@ -54,19 +54,21 @@ namespace ExcelSharpTests
         {
             testWorkbook.SelectSheet(1);
 
-            Assert.That(testWorkbook.ActiveSheet, Is.SameAs(testWorkbook.Sheets[1]));
+            Assert.That(testWorkbook.ActiveSheet, Is.SameAs(testWorkbook.Sheets[0]));
         }
         
         [Test]
         public void Workbook_GetSheet_ReturnsSheet()
         {
-            ReadOnlySheet testSheet = testWorkbook.GetSheet(1);
+            Sheet testSheet = testWorkbook.GetSheet(1);
             Assert.That(testSheet.Index, Is.EqualTo(1));
         }
 
         private Workbook initTestWorkbook()
         {
-            Workbook testWorkbook = testOperator.OpenWorkbook();
+            string path = Environment.CurrentDirectory;
+            string wbPath = @"{0}\TestingFiles\TestingWorkbook.xlsx";
+            Workbook testWorkbook = testOperator.OpenWorkbook(string.Format(wbPath, path));
             return testWorkbook;
         }
     }

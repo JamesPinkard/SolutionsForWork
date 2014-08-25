@@ -7,11 +7,10 @@ using ExcelSharp;
 
 namespace ExcelSharpTests
 {
-    public static class TestHelper
+    public class TestHelper
     {
-        public void InitializeWorksheet(ExcelOperator testOperator, Workbook testWorkbook )
-        {
-            testOperator = new ExcelOperator();
+        public void InitializeExcel(ExcelOperator testOperator, Workbook testWorkbook )
+        {            
             testOperator.InitializeExcel();
             testWorkbook = initTestWorkbook(testOperator);
         }
@@ -24,7 +23,7 @@ namespace ExcelSharpTests
 
         public void ClearCells(Workbook testWorkbook)
         {
-            testWorkbook.ActiveSheet.Cells.Clear();
+            testWorkbook.ActiveSheet.ClearCells();
         }
 
         private Workbook initTestWorkbook(ExcelOperator testOperator)

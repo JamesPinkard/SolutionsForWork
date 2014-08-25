@@ -15,9 +15,5 @@ namespace ExcelSharp
 
         }
 
-        protected override void InitializeWriter()
-        {
-            base.sheetWriter = SheetWriter.NULL;
-        }
     }
 }

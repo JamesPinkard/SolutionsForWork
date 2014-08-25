@@ -7,22 +7,33 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ExcelSharp
 {
-    abstract public class Sheet
+    public class Sheet
     {
-        public int Index { get { return worksheet.Index; } }        
-        protected SheetWriter sheetWriter;       
+        public int Index { get; set; }        
+        protected AbstractTableWriter sheetWriter;       
         private Excel._Worksheet worksheet;
         private Excel.Range startRange;
         private Excel.Range endRange;
-        private Excel._Workbook workbook;
-        private SheetWriter nullWriter;
+        public string Name { get { return worksheet.Name; } }
         
+        public SheetWriter Writer{ get; set; }
+        public SheetTools Tools { get; set; }
+                
         public Sheet(Excel._Worksheet worksheet )
         {
             this.worksheet = worksheet;
-            InitializeWriter();
+        }
+
+        public void DeleteSheet()
+        {
+            this.Index = 0;
+            this.Writer = null;
+            this.Tools = null;
+            this.worksheet.Delete();
+            this.worksheet = null;
         }
         
+        #region public string[,] GetCells(int rows, int columns)
 
         /// <summary>
             /// Returns the block of cell values
@@ -35,11 +46,14 @@ namespace ExcelSharp
             /// <returns> </returns>
         public string[,] GetCells(int rows, int columns)
         {
+            worksheet.Activate();
+            Excel.Range activeRange = worksheet.get_Range("A1");
+            activeRange.Activate();
             string[,] cellArray = new string[rows, columns];
             assignCellArray(rows, columns, cellArray);
             return cellArray;
         }
-        #region GetCells Helper Methods
+
         private void assignCellArray(int rows, int columns, string[,] cellArray)
         {
             for (int r = 0; r < rows; r++)
@@ -58,16 +72,21 @@ namespace ExcelSharp
 
         private void assignCell(string[,] cellArray, int r, int c)
         {
-            cellArray[r, c] = (string)worksheet.Cells[r + 1, c + 1].Value;
+            cellArray[r, c] = (string)this.worksheet.Cells[r + 1, c + 1].Value;
         } 
-        #endregion
 
+        #endregion
+        
         public string[,] GetRange(string startCell, string endCell)
         {
+            worksheet.Activate();
+            Excel.Range activeRange = worksheet.get_Range(startCell);
+            activeRange.Activate();
             string[,] cellArray = setCellArray(startCell, endCell);
             assignCellBlock(cellArray);
             return cellArray;
         }
+
         #region GetRange Helper Methods
         private void assignCellBlock(string[,] cellArray)
         {
@@ -94,6 +113,12 @@ namespace ExcelSharp
         } 
         #endregion
 
-        abstract protected void InitializeWriter();
+        public string wbPath { get; private set; }
+
+        public void ClearCells()
+        {
+            worksheet.Cells.Clear();
+        }
+
     }
 }
