@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\FileLinkTracker\FileLinkTrackerTests\ExcelSharpTests.nunit" total="6" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-08-25" time="15:05:31">
+  <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.8009" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\FileLinkTracker\FileLinkTrackerTests" machine-name="DRWATSON" user="jpink_000" user-domain="DRWATSON" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Project" name="C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\FileLinkTracker\FileLinkTrackerTests\ExcelSharpTests.nunit" executed="True" result="Success" success="True" time="2.701" asserts="0">
+    <results>
+      <test-suite type="Assembly" name="C:\Users\jpink_000\Documents\GitHub\SolutionsForWork\FileLinkTracker\FileLinkTrackerTests\bin\Debug\ExcelSharpTests.dll" executed="True" result="Success" success="True" time="2.700" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="ExcelSharpTests" executed="True" result="Success" success="True" time="2.700" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="SheetTests" executed="True" result="Success" success="True" time="1.545" asserts="0">
+                <categories>
+                  <category name="Sheet Tests" />
+                </categories>
+                <results>
+                  <test-case name="ExcelSharpTests.SheetTests.Sheet_GetCells_ReturnsArrayOfValuesBlockOfCells" executed="True" result="Success" success="True" time="0.019" asserts="2" />
+                  <test-case name="ExcelSharpTests.SheetTests.Sheet_GetRange_ReturnsArrayOfValuesInRange" executed="True" result="Success" success="True" time="0.034" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="WorkbookTests" executed="True" result="Success" success="True" time="1.149" asserts="0">
+                <categories>
+                  <category name="Workbook Tests" />
+                </categories>
+                <results>
+                  <test-case name="ExcelSharpTests.WorkbookTests.Workbook_AddSheet_AddsNewSheet" executed="True" result="Success" success="True" time="0.051" asserts="1" />
+                  <test-case name="ExcelSharpTests.WorkbookTests.Workbook_GetSheet_ReturnsSheet" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="ExcelSharpTests.WorkbookTests.Workbook_RemoveSheet_RemovesSheetAtEnd" executed="True" result="Success" success="True" time="0.050" asserts="1" />
+                  <test-case name="ExcelSharpTests.WorkbookTests.Workbook_SelectSheet_SetsActiveSheet" executed="True" result="Success" success="True" time="0.008" asserts="1" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
