@@ -17,7 +17,7 @@ namespace ExcelSharp
         public string Name { get { return worksheet.Name; } }
         
         public SheetWriter Writer{ get; set; }
-        public SheetTools Tools { get; set; }
+        public SheetTool Tools { get; set; }
                 
         public Sheet(Excel._Worksheet worksheet )
         {

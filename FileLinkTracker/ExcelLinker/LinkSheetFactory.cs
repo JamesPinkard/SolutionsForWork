@@ -17,7 +17,7 @@ namespace ExcelSharp
             throw new NotImplementedException();
         }
 
-        protected override SheetTools MakeSheetTools()
+        protected override SheetTool MakeSheetTools()
         {
             throw new NotImplementedException();
         }

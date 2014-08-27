@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public class LinkSheetTools : SheetTools
+    public class LinkSheetTool : SheetTool
     {
         // TODO Implement Link Sheet Tools
     }

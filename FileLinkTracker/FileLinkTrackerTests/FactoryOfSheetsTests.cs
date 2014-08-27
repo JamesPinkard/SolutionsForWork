@@ -8,80 +8,136 @@ using ExcelSharp;
 using System.IO;
 
 namespace ExcelSharpTests
-{
-    [Category("Factory Sheet Tests")]
+{   
     [TestFixture]
-    public class FactoryOfSheetsTests
+    public abstract class BaseSheetFactoryTests
     {
-        ExcelOperator testOperator;
-        Workbook testWorkbook;
-        TestHelper helper;
+        protected ExcelOperator testOperator { get; set; }
+        protected Workbook testWorkbook { get; set; }
+        protected abstract SheetFactory testFactory { get; set; }
+        protected abstract Type writerType { get; }
+        protected abstract Type toolType { get; }
 
-        #region Setup and Teardown
         [TestFixtureSetUp]
         public void InitializeWorksheet()
         {
-            helper.InitializeExcel(testOperator, testWorkbook);
+            testOperator = new ExcelOperator();
+            testOperator.InitializeExcel();
+            testWorkbook = initTestWorkbook();
+        }
+        public Workbook initTestWorkbook()
+        {
+            string path = Environment.CurrentDirectory;
+            string wbPath = @"{0}\TestingFiles\TestingWorkbook.xlsx";
+            Workbook testWorkbook = testOperator.OpenWorkbook(string.Format(wbPath, path));
+            return testWorkbook;
         }
 
         [TestFixtureTearDown]
         public void CloseExcel()
         {
-            helper.CloseExcel(testOperator);
+            testOperator.CloseWorkbook();
+            testOperator.CloseExcel();
         }
 
-        [SetUp]
-        public void ClearCells()
+        protected void setUpTableSheetFactory()
         {
-            helper.ClearCells(testWorkbook);
+            testFactory = getTestFactory();
+            testFactory.SourceSheet = testWorkbook.ActiveSheet;
         }
-        #endregion        
-
-        [Category("Integration Test")]
+        protected abstract SheetFactory getTestFactory();  
+        
         [Test]
-        public void FactoryOfTableSheets_IntegrationTest()
+        public void SheetFactory_ExecuteWithWorkbook_MakesNewSheet()
         {
-            ISheetCommand tableSheetFactory = new TableSheetFactory(testWorkbook);            
+            testFactory = getTestFactory();
             int initialSheetCount = testWorkbook.sheetCount;
 
-            // Should Not Return Anything; Should just add sheets to workbook
-            tableSheetFactory.ExecuteWithWorkbook(); //First Test
-            Sheet tableSheet = testWorkbook.RecentlyAddedSheet;
-            Assert.That(testWorkbook.sheetCount, Is.EqualTo(initialSheetCount + 1));            
-            Assert.That(tableSheet.Writer, Is.TypeOf(typeof(TableSheetWriter)));
-            Assert.That(tableSheet.Tools, Is.TypeOf(typeof(TableSheetTools)));
+            testFactory.ExecuteWithWorkbook();
             
-            SheetFactory linkSheetFactory = new LinkSheetFactory(testWorkbook);
-            linkSheetFactory.SourceSheet = tableSheet;
-            linkSheetFactory.ExecuteWithSheet();
-            Sheet linkSheet = testWorkbook.RecentlyAddedSheet;
-
-            Assert.That(testWorkbook.sheetCount, Is.EqualTo(initialSheetCount + 2));
-            Assert.That(linkSheet.Writer, Is.TypeOf(typeof(LinkSheetWriter)));
-            Assert.That(linkSheet.Tools, Is.TypeOf(typeof(LinkSheetTools)));
-            Assert.That(linkSheet.wbPath, Is.EqualTo(tableSheet.wbPath));
+            Assert.That(testWorkbook.sheetCount,Is.EqualTo(initialSheetCount + 1));
         }
         
-        [Category("Sheet Factory")]
         [Test]
-        public void TableSheetFactory_ExecuteWithWorkbook_MakeNewTableSheet()
-        {
-            TableSheetFactory testFactory;
+        public void SheetFactory_ExecuteWithWorkbook_NewSheetHasTableWriter()
+        {            
             testFactory = getTestFactory();
 
             testFactory.ExecuteWithWorkbook();
 
-            Assert.That(testWorkbook.RecentlyAddedSheet.Writer,Is.InstanceOf(typeof(TableSheetWriter)));
+            Assert.That(testWorkbook.RecentlyAddedSheet.Writer,Is.InstanceOf(writerType));
         }
 
-        private TableSheetFactory getTestFactory()
+        [Test]
+        public void SheetFactory_ExecuteWithWorkbook_NewSheetHasTableTools()
         {
-            TableSheetFactory testFactory;
-            testFactory = new TableSheetFactory(testWorkbook);
-            return testFactory;
+            testFactory = getTestFactory();
+            
+            testFactory.ExecuteWithWorkbook();
+
+            Assert.That(testWorkbook.RecentlyAddedSheet.Tools, Is.InstanceOf(toolType));
+        }
+
+        [Test]
+        public void SheetFactory_ExecuteWithSheet_MakesNewSheet()
+        {
+            setUpTableSheetFactory();
+            int initialSheetCount = testWorkbook.sheetCount;
+
+            testFactory.ExecuteWithSheet();
+
+            Assert.That(testWorkbook.sheetCount, Is.EqualTo(initialSheetCount + 1));
+        }
+
+        [Test]
+        public void SheetFactory_ExecuteWithSheet_NewSheetHasTableWriter()
+        {
+            setUpTableSheetFactory();            
+
+            testFactory.ExecuteWithSheet();
+
+            Assert.That(testWorkbook.RecentlyAddedSheet.Writer, Is.InstanceOf(writerType));
+        }
+
+        [Test]
+        public void SheetFactory_ExecuteWithSheet_NewSheetHasTableTools()
+        {
+            setUpTableSheetFactory();
+
+            testFactory.ExecuteWithSheet();
+
+            Assert.That(testWorkbook.RecentlyAddedSheet.Tools, Is.InstanceOf(toolType));
+        }
+
+        // TODO Need to implement SheetHandler Class
+        //      Needs to overwrite sheets, save, and open
+    }
+
+    [Category("Sheet Factory")]
+    [TestFixture]
+    public class SheetFactoryTests : BaseSheetFactoryTests
+    {
+        private TableSheetFactory testTableFactory;
+        protected override SheetFactory testFactory
+        {
+            get { return testTableFactory; }
+            set { testTableFactory = (TableSheetFactory) value ; }
+        }
+        protected override Type writerType
+        {
+            get { return typeof(TableSheetWriter); }
+        }
+        protected override Type toolType
+        {
+            get { return typeof(TableSheetTool); }
+        }
+       
+        protected override SheetFactory getTestFactory()
+        {
+            return new TableSheetFactory(testWorkbook);
         }
         
-        // Need to implement SheetHandler Class
-        //      Needs to overwrite sheets, save, and open
+        
+
     }
 }

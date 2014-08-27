@@ -7,28 +7,60 @@ namespace ExcelSharp
 {
     public abstract class SheetFactory : ISheetCommand
     {
-        private Workbook workbook;
         public Sheet SourceSheet { get; set; }
+        
+        private Workbook workbook;
+        private SheetWriter sheetWriter;
+        private SheetTool sheetTools;
 
         public SheetFactory(Workbook workbook)
         {
             this.workbook = workbook;
         }
 
+        protected abstract SheetWriter MakeSheetWriter();
+        protected abstract SheetTool MakeSheetTools();
+        
         public void ExecuteWithWorkbook()
         {
-            SheetWriter sheetWriter = MakeSheetWriter();
-            // rework Workbook design before proceding
-            workbook.AddSheet();
-            Sheet newSheet = workbook.RecentlyAddedSheet;
-            newSheet.Writer = sheetWriter;
-        }        
-        protected abstract SheetWriter MakeSheetWriter();
-        protected abstract SheetTools MakeSheetTools();
+            MakeSheetUtilites();
 
+            Sheet newSheet = MakeNewSheet();
+            
+            SetSheetUtilities(newSheet);
+        }
         public void ExecuteWithSheet()
         {
-            // TODO Implement with template methods
+            MakeSheetUtilites();
+            
+            Sheet copySheet = CopySheet();
+
+            SetSheetUtilities(copySheet);
+        }
+        
+        private void MakeSheetUtilites()
+        {
+
+            sheetWriter = MakeSheetWriter();
+            sheetTools = MakeSheetTools();
+        }
+        private Sheet CopySheet()
+        {
+            workbook.CopySheet(SourceSheet);
+            Sheet copySheet = workbook.RecentlyAddedSheet;
+            return copySheet;
+        }
+        private Sheet MakeNewSheet()
+        {
+            workbook.AddSheet();
+            Sheet newSheet = workbook.RecentlyAddedSheet;
+            return newSheet;
+        }
+        private void SetSheetUtilities(Sheet newSheet)
+        {
+
+            newSheet.Writer = sheetWriter;
+            newSheet.Tools = sheetTools;
         }
     }
 }

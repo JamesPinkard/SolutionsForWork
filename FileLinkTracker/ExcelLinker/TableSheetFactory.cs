@@ -17,9 +17,10 @@ namespace ExcelSharp
             return tableWriter;
         }
 
-        protected override SheetTools MakeSheetTools()
+        protected override SheetTool MakeSheetTools()
         {
-            throw new NotImplementedException();
+            TableSheetTool tableTools = new TableSheetTool();
+            return tableTools;
         }
     }
 }

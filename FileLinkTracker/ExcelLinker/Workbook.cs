@@ -8,8 +8,6 @@ namespace ExcelSharp
 {
     public class Workbook
     {
-        // TODO
-        // Active Sheet should be a Sheet Class
         public Sheet ActiveSheet { get; private set; }
         public List<Sheet> Sheets
         {
@@ -25,8 +23,8 @@ namespace ExcelSharp
         private Dictionary<Sheet, Excel._Worksheet> sheetDict = new Dictionary<Sheet,Excel._Worksheet>();        
         private List<Sheet> sheets = new List<Sheet>();
         private Excel._Workbook oWB;
-        private Excel.Sheets workbookSheets;        
-        
+        private Excel.Sheets workbookSheets;     
+
         public Workbook( Excel._Workbook oWB)
         {
             this.oWB = oWB;            
@@ -41,29 +39,15 @@ namespace ExcelSharp
             }
             this.ActiveSheet = Sheets[0];
         }            
-        
-        // TODO
-        // Assign wbsheet to Sheet Class
+
         public void AddSheet()
         {
             sheetCounter += 1;
             workbookSheets.Add();
-            Excel._Worksheet ws = workbookSheets[sheetCount - 1];
-            Sheet addedSheet = new Sheet(ws);
             
-            setIndex(addedSheet);
-            sheets.Add(addedSheet);
-            sheetDict[addedSheet] = ws;            
-            RecentlyAddedSheet = addedSheet;
+            Excel._Worksheet ws = getEndSheet();
+            initializeNewSheet(ws);
         }
-
-        private void setIndex(Sheet addedSheet)
-        {
-            addedSheet.Index = sheetCounter;
-        }
-
-        // TODO
-        // Remove Sheet and Makes Sheet Null
         public void RemoveSheet()
         {
             sheetCounter -= 1;            
@@ -74,23 +58,52 @@ namespace ExcelSharp
             Sheets.Remove(removedSheet);
             sheetDict.Remove(removedSheet);            
         }
-
-        // TODO
-        // Selects class Sheet as well as oWB Sheet
-        public void SelectSheet(int sheetsIndex)
-        {
-            this.ActiveSheet = this.Sheets[sheetsIndex - 1];
-            Excel._Worksheet activeSheet = sheetDict[ActiveSheet];
-            activeSheet.Activate();
-        }
-
-        // TODO
-        // Needs Re-thinking, the Sheet should be Null default
-        // Error Should arise if it doesn't exist
         public Sheet GetSheet(int sheetIndex)
         {
             Sheet returnSheet = Sheets[sheetIndex - 1];
             return returnSheet;
         }
+        public void SelectSheet(int sheetsIndex)
+        {
+            ActiveSheet = Sheets[sheetsIndex - 1];
+            Excel._Worksheet activeSheet = sheetDict[ActiveSheet];
+            activeSheet.Activate();
+        }
+        public void CopySheet(Sheet originalSheet)
+        {
+            Excel._Worksheet oSheet = sheetDict[originalSheet];
+            Excel._Worksheet endSheet = getEndSheet();                        
+            sheetCounter += 1;
+
+            // Copy Sheet to the last position in the workbook
+            oSheet.Copy(Type.Missing,endSheet);
+
+            Excel._Worksheet copySheet = getEndSheet();
+            initializeNewSheet(copySheet);
+        }
+
+        private Excel._Worksheet getEndSheet()
+        {
+            Excel._Worksheet ws = workbookSheets[sheetCount];
+            return ws;
+        }
+        private void initializeNewSheet(Excel._Worksheet ws)
+        {
+            Sheet addedSheet = new Sheet(ws);
+            setIndex(addedSheet);
+            sheets.Add(addedSheet);
+            sheetDict[addedSheet] = ws;
+            RecentlyAddedSheet = addedSheet;
+        }
+        private void setIndex(Sheet addedSheet)
+        {
+            addedSheet.Index = sheetCounter;
+        }
     }
 }
+        
+                
+                
+                
+
+

@@ -43,18 +43,18 @@
     <Compile Include="ISheetCommand.cs" />
     <Compile Include="ISheetWriter.cs" />
     <Compile Include="LinkSheetFactory.cs" />
-    <Compile Include="LinkSheetTools.cs" />
+    <Compile Include="LinkSheetTool.cs" />
     <Compile Include="LinkSheetWriter.cs" />
     <Compile Include="ReadOnlySheet.cs" />
     <Compile Include="Sheet.cs" />
     <Compile Include="ExcelOperator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SheetFactory.cs" />
-    <Compile Include="SheetTools.cs" />
+    <Compile Include="SheetTool.cs" />
     <Compile Include="AbstractTableWriter.cs" />
     <Compile Include="SheetWriter.cs" />
     <Compile Include="TableSheetFactory.cs" />
-    <Compile Include="TableSheetTools.cs" />
+    <Compile Include="TableSheetTool.cs" />
     <Compile Include="TableSheetWriter.cs" />
     <Compile Include="Workbook.cs" />
   </ItemGroup>
