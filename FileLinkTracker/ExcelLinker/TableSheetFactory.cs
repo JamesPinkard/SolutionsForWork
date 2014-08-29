@@ -6,8 +6,7 @@ using System.Text;
 namespace ExcelSharp
 {
     public class TableSheetFactory : SheetFactory
-    {   
-        // TODO Implement Table Sheet Factory
+    {           
         public TableSheetFactory(Workbook workbook) : base(workbook) { }
 
 

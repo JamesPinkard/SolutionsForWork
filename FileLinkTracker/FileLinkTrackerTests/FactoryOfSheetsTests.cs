@@ -115,7 +115,7 @@ namespace ExcelSharpTests
 
     [Category("Sheet Factory")]
     [TestFixture]
-    public class SheetFactoryTests : BaseSheetFactoryTests
+    public class TableSheetFactoryTests : BaseSheetFactoryTests
     {
         private TableSheetFactory testTableFactory;
         protected override SheetFactory testFactory
@@ -135,9 +135,41 @@ namespace ExcelSharpTests
         protected override SheetFactory getTestFactory()
         {
             return new TableSheetFactory(testWorkbook);
-        }
-        
-        
+        }  
+    }
 
+    [Category("Sheet Factory")]
+    [TestFixture]
+    public class LinkSheetFactoryTests : BaseSheetFactoryTests
+    {
+        private LinkSheetFactory testLinkFactory;
+
+
+        protected override SheetFactory testFactory
+        {
+            get
+            {
+                return testLinkFactory;
+            }
+            set
+            {
+                testLinkFactory = (LinkSheetFactory) value;
+            }
+        }
+
+        protected override Type writerType
+        {
+            get { return typeof(LinkSheetWriter); }
+        }
+
+        protected override Type toolType
+        {
+            get { return typeof(LinkSheetTool); }
+        }
+
+        protected override SheetFactory getTestFactory()
+        {
+            return new LinkSheetFactory(testWorkbook);
+        }
     }
 }

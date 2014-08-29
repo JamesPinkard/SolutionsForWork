@@ -14,12 +14,14 @@ namespace ExcelSharp
 
         protected override SheetWriter MakeSheetWriter()
         {
-            throw new NotImplementedException();
+            LinkSheetWriter linkWriter = new LinkSheetWriter();
+            return linkWriter;
         }
 
         protected override SheetTool MakeSheetTools()
         {
-            throw new NotImplementedException();
+            LinkSheetTool linkTool = new LinkSheetTool();
+            return linkTool;
         }
     }
 }
