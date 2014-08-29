@@ -10,13 +10,13 @@ namespace ExcelSharp
         public TableSheetFactory(Workbook workbook) : base(workbook) { }
 
 
-        protected override SheetWriter MakeSheetWriter()
+        protected override ISheetWriter MakeSheetWriter()
         {
             TableSheetWriter tableWriter = new TableSheetWriter();
             return tableWriter;
         }
 
-        protected override SheetTool MakeSheetTools()
+        protected override ISheetTool MakeSheetTools()
         {
             TableSheetTool tableTools = new TableSheetTool();
             return tableTools;

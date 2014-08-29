@@ -10,16 +10,16 @@ namespace ExcelSharp
         public Sheet SourceSheet { get; set; }
         
         private Workbook workbook;
-        private SheetWriter sheetWriter;
-        private SheetTool sheetTools;
+        private ISheetWriter sheetWriter;
+        private ISheetTool sheetTools;
 
         public SheetFactory(Workbook workbook)
         {
             this.workbook = workbook;
         }
 
-        protected abstract SheetWriter MakeSheetWriter();
-        protected abstract SheetTool MakeSheetTools();
+        protected abstract ISheetWriter MakeSheetWriter();
+        protected abstract ISheetTool MakeSheetTools();
         
         public void ExecuteWithWorkbook()
         {

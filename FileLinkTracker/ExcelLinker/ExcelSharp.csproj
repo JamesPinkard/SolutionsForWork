@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ISheetCommand.cs" />
+    <Compile Include="ISheetTool.cs" />
     <Compile Include="ISheetWriter.cs" />
     <Compile Include="LinkSheetFactory.cs" />
     <Compile Include="LinkSheetTool.cs" />

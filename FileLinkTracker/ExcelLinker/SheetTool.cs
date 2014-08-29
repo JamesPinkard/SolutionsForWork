@@ -5,8 +5,22 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public abstract class SheetTool
+    public abstract class SheetTool : ISheetTool
     {
-        // TODO Implement Abstract Sheet Tools
+
+        public void Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Format()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
