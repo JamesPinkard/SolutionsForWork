@@ -5,9 +5,11 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileLinkTracker", "FileLinkTracker\FileLinkTracker.csproj", "{7BBB9D5C-1DFB-4F8F-A23B-A53FC65EF333}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelSharp", "ExcelLinker\ExcelSharp.csproj", "{F03AA823-F183-4205-918F-D46B8C8310E7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9B8EB98D-AA30-40A6-9461-7C5C80019BD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelSharpTests", "FileLinkTrackerTests\ExcelSharpTests.csproj", "{9DB07F3C-9856-4853-85D1-078219007DC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelSharp", "ExcelSharp\ExcelSharp.csproj", "{F03AA823-F183-4205-918F-D46B8C8310E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelSharpTests", "ExcelSharpTests\ExcelSharpTests.csproj", "{9DB07F3C-9856-4853-85D1-078219007DC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
