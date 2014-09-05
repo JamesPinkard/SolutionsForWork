@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public abstract class SheetFactory : IMaker
+    public abstract class SheetFactory : IOfficeMaker
     {
         public Sheet SourceSheet { get { return workbook.ActiveSheet; } }
         

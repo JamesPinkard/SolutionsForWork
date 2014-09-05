@@ -46,7 +46,7 @@ namespace ExcelSharpTests
         [Test]
         public void FactoryOfTableSheets_IntegrationTest()
         {
-            IMaker tableSheetFactory = new TableSheetFactory(testWorkbook);
+            IOfficeMaker tableSheetFactory = new TableSheetFactory(testWorkbook);
             int initialSheetCount = testWorkbook.sheetCount;
 
             // Should Not Return Anything; Should just add sheets to workbook

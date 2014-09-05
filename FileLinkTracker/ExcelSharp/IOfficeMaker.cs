@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public interface IMaker
+    public interface IOfficeMaker
     {
         void ExecuteMake();
         void ExecuteCopy();

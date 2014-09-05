@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMaker.cs" />
+    <Compile Include="IOfficeMaker.cs" />
     <Compile Include="SheetTools\IOfficeTool.cs" />
     <Compile Include="SheetWriters\IOfficeWriter.cs" />
     <Compile Include="SheetFactories\LinkSheetFactory.cs" />
