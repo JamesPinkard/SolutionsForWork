@@ -16,8 +16,8 @@ namespace ExcelSharp
         private Excel.Range endRange;
         public string Name { get { return worksheet.Name; } }
         
-        public ISheetWriter Writer{ get; set; }
-        public ISheetTool Tools { get; set; }
+        public IOfficeWriter Writer{ get; set; }
+        public IOfficeTool Tools { get; set; }
                 
         public Sheet(Excel._Worksheet worksheet )
         {

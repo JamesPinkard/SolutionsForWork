@@ -46,19 +46,18 @@ namespace ExcelSharpTests
         [Test]
         public void FactoryOfTableSheets_IntegrationTest()
         {
-            ISheetCommand tableSheetFactory = new TableSheetFactory(testWorkbook);
+            IMaker tableSheetFactory = new TableSheetFactory(testWorkbook);
             int initialSheetCount = testWorkbook.sheetCount;
 
             // Should Not Return Anything; Should just add sheets to workbook
-            tableSheetFactory.ExecuteWithWorkbook(); //First Test
+            tableSheetFactory.ExecuteMake(); //First Test
             Sheet tableSheet = testWorkbook.RecentlyAddedSheet;
             Assert.That(testWorkbook.sheetCount, Is.EqualTo(initialSheetCount + 1));
             Assert.That(tableSheet.Writer, Is.TypeOf(typeof(TableSheetWriter)));
             Assert.That(tableSheet.Tools, Is.TypeOf(typeof(TableSheetTool)));
 
-            SheetFactory linkSheetFactory = new LinkSheetFactory(testWorkbook);
-            linkSheetFactory.SourceSheet = tableSheet;
-            linkSheetFactory.ExecuteWithSheet();
+            SheetFactory linkSheetFactory = new LinkSheetFactory(testWorkbook);            
+            linkSheetFactory.ExecuteCopy();
             Sheet linkSheet = testWorkbook.RecentlyAddedSheet;
 
             Assert.That(testWorkbook.sheetCount, Is.EqualTo(initialSheetCount + 2));

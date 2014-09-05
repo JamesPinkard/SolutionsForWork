@@ -6,7 +6,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ExcelSharp
 {
-    public class Workbook
+    public class Workbook : IDisposable
     {
         public Sheet ActiveSheet { get; private set; }
         public List<Sheet> Sheets
@@ -98,6 +98,12 @@ namespace ExcelSharp
         private void setIndex(Sheet addedSheet)
         {
             addedSheet.Index = sheetCounter;
+        }
+
+        public void Dispose()
+        {
+            oWB.Save();
+            oWB.Close();
         }
     }
 }

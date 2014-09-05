@@ -42,8 +42,7 @@ namespace ExcelSharpTests
 
         protected void setUpTableSheetFactory()
         {
-            testFactory = getTestFactory();
-            testFactory.SourceSheet = testWorkbook.ActiveSheet;
+            testFactory = getTestFactory();            
         }
         protected abstract SheetFactory getTestFactory();  
         
@@ -53,7 +52,7 @@ namespace ExcelSharpTests
             testFactory = getTestFactory();
             int initialSheetCount = testWorkbook.sheetCount;
 
-            testFactory.ExecuteWithWorkbook();
+            testFactory.ExecuteMake();
             
             Assert.That(testWorkbook.sheetCount,Is.EqualTo(initialSheetCount + 1));
         }
@@ -63,7 +62,7 @@ namespace ExcelSharpTests
         {            
             testFactory = getTestFactory();
 
-            testFactory.ExecuteWithWorkbook();
+            testFactory.ExecuteMake();
 
             Assert.That(testWorkbook.RecentlyAddedSheet.Writer,Is.InstanceOf(writerType));
         }
@@ -73,7 +72,7 @@ namespace ExcelSharpTests
         {
             testFactory = getTestFactory();
             
-            testFactory.ExecuteWithWorkbook();
+            testFactory.ExecuteMake();
 
             Assert.That(testWorkbook.RecentlyAddedSheet.Tools, Is.InstanceOf(toolType));
         }
@@ -84,7 +83,7 @@ namespace ExcelSharpTests
             setUpTableSheetFactory();
             int initialSheetCount = testWorkbook.sheetCount;
 
-            testFactory.ExecuteWithSheet();
+            testFactory.ExecuteCopy();
 
             Assert.That(testWorkbook.sheetCount, Is.EqualTo(initialSheetCount + 1));
         }
@@ -94,7 +93,7 @@ namespace ExcelSharpTests
         {
             setUpTableSheetFactory();            
 
-            testFactory.ExecuteWithSheet();
+            testFactory.ExecuteCopy();
 
             Assert.That(testWorkbook.RecentlyAddedSheet.Writer, Is.InstanceOf(writerType));
         }
@@ -104,7 +103,7 @@ namespace ExcelSharpTests
         {
             setUpTableSheetFactory();
 
-            testFactory.ExecuteWithSheet();
+            testFactory.ExecuteCopy();
 
             Assert.That(testWorkbook.RecentlyAddedSheet.Tools, Is.InstanceOf(toolType));
         }

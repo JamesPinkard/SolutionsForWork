@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public abstract class SheetTool : ISheetTool
+    public abstract class SheetTool : IOfficeTool
     {
 
         public void Create()

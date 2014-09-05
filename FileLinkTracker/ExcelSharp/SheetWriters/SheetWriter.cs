@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExcelSharp
 {
-    public abstract class SheetWriter : ISheetWriter
+    public abstract class SheetWriter : IOfficeWriter
     {
         public void WriteFields()
         {

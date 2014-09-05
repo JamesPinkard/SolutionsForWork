@@ -5,9 +5,9 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public interface ISheetCommand
+    public interface IOfficeWriter
     {
-        void ExecuteWithWorkbook();
-        void ExecuteWithSheet();
+        void WriteFields();
+        void WriteBody();
     }
 }

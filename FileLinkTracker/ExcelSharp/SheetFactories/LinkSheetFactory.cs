@@ -12,13 +12,13 @@ namespace ExcelSharp
 
         }
 
-        protected override ISheetWriter MakeSheetWriter()
+        protected override IOfficeWriter MakeSheetWriter()
         {
             LinkSheetWriter linkWriter = new LinkSheetWriter();
             return linkWriter;
         }
 
-        protected override ISheetTool MakeSheetTools()
+        protected override IOfficeTool MakeSheetTools()
         {
             LinkSheetTool linkTool = new LinkSheetTool();
             return linkTool;

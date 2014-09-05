@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    abstract public class AbstractTableWriter : ISheetWriter
+    abstract public class AbstractTableWriter : IOfficeWriter
     {
 
         // From Null object example in Agile Principles

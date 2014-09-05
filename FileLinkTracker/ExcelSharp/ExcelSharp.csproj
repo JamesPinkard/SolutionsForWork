@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ISheetCommand.cs" />
-    <Compile Include="SheetTools\ISheetTool.cs" />
-    <Compile Include="SheetWriters\ISheetWriter.cs" />
+    <Compile Include="IMaker.cs" />
+    <Compile Include="SheetTools\IOfficeTool.cs" />
+    <Compile Include="SheetWriters\IOfficeWriter.cs" />
     <Compile Include="SheetFactories\LinkSheetFactory.cs" />
     <Compile Include="SheetTools\LinkSheetTool.cs" />
     <Compile Include="SheetWriters\LinkSheetWriter.cs" />

@@ -5,23 +5,23 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public abstract class SheetFactory : ISheetCommand
+    public abstract class SheetFactory : IMaker
     {
-        public Sheet SourceSheet { get; set; }
+        public Sheet SourceSheet { get { return workbook.ActiveSheet; } }
         
         private Workbook workbook;
-        private ISheetWriter sheetWriter;
-        private ISheetTool sheetTools;
+        private IOfficeWriter sheetWriter;
+        private IOfficeTool sheetTools;
 
         public SheetFactory(Workbook workbook)
         {
             this.workbook = workbook;
         }
 
-        protected abstract ISheetWriter MakeSheetWriter();
-        protected abstract ISheetTool MakeSheetTools();
+        protected abstract IOfficeWriter MakeSheetWriter();
+        protected abstract IOfficeTool MakeSheetTools();
         
-        public void ExecuteWithWorkbook()
+        public void ExecuteMake()
         {
             MakeSheetUtilites();
 
@@ -29,7 +29,7 @@ namespace ExcelSharp
             
             SetSheetUtilities(newSheet);
         }
-        public void ExecuteWithSheet()
+        public void ExecuteCopy()
         {
             MakeSheetUtilites();
             
