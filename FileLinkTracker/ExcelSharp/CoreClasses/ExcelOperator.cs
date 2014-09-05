@@ -12,12 +12,19 @@ namespace ExcelSharp
     {
         public static Excel.Application oXL;
         public bool isExcelOpen { get; private set; }        
-        private Excel._Workbook operatorWB;
         public int WorkbookCount
         {
             get { return oXL.Workbooks.Count; }
         }
         
+        private Excel._Workbook operatorWB;
+        
+        
+        public ExcelOperator()
+        {
+            isExcelOpen = false;
+        }
+
 
         public Workbook OpenWorkbook(string path = null)
         {
@@ -34,11 +41,6 @@ namespace ExcelSharp
                 Workbook _workbook = new Workbook(operatorWB);                
                 return _workbook;
             }
-        }
-
-        public ExcelOperator()
-        {
-            isExcelOpen = false;
         }
 
         public void InitializeExcel()
@@ -82,5 +84,6 @@ namespace ExcelSharp
             CloseWorkbook();
             CloseExcel();
         }
+
     }   
 }
