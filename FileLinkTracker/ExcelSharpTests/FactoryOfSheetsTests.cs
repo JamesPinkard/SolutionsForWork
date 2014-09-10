@@ -10,41 +10,16 @@ using System.IO;
 namespace ExcelSharpTests
 {   
     [TestFixture]
-    public abstract class BaseSheetFactoryTests
+    public abstract class BaseSheetFactoryTests : BaseTest
     {
-        protected ExcelOperator testOperator { get; set; }
-        protected Workbook testWorkbook { get; set; }
         protected abstract SheetFactory testFactory { get; set; }
-        protected abstract Type writerType { get; }
-        protected abstract Type toolType { get; }
-
-        [TestFixtureSetUp]
-        public void InitializeWorksheet()
-        {
-            testOperator = new ExcelOperator();
-            testOperator.InitializeExcel();
-            testWorkbook = initTestWorkbook();
-        }
-        public Workbook initTestWorkbook()
-        {
-            string path = Environment.CurrentDirectory;
-            string wbPath = @"{0}\TestingFiles\TestingWorkbook.xlsx";
-            Workbook testWorkbook = testOperator.OpenWorkbook(string.Format(wbPath, path));
-            return testWorkbook;
-        }
-
-        [TestFixtureTearDown]
-        public void CloseExcel()
-        {
-            testOperator.CloseWorkbook();
-            testOperator.CloseExcel();
-        }
-
         protected void setUpTableSheetFactory()
         {
             testFactory = getTestFactory();            
         }
-        protected abstract SheetFactory getTestFactory();  
+        protected abstract SheetFactory getTestFactory();
+        protected abstract Type writerType { get; }
+        protected abstract Type toolType { get; }
         
         [Test]
         public void SheetFactory_ExecuteWithWorkbook_MakesNewSheet()

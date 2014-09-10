@@ -42,7 +42,9 @@
   <ItemGroup>
     <Compile Include="ChangeCommands\ChangeFormatterCommand.cs" />
     <Compile Include="ChangeCommands\ChangeRemoverCommand.cs" />
+    <Compile Include="ChangeCommands\ChangeToDirectoryFormatter.cs" />
     <Compile Include="ChangeCommands\ChangeToolCommand.cs" />
+    <Compile Include="ChangeToLinkRemover.cs" />
     <Compile Include="OfficeCommand.cs" />
     <Compile Include="ChangeCommands\ChangeWriterCommand.cs" />
     <Compile Include="Formatter\DirectoryFormatter.cs" />

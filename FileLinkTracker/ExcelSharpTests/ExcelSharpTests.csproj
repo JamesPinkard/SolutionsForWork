@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseTest.cs" />
+    <Compile Include="ChangeCommandTests.cs" />
     <Compile Include="IntegrationTests.cs" />
     <Compile Include="ExcelOperatorTests.cs" />
     <Compile Include="FactoryOfSheetsTests.cs" />

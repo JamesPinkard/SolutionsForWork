@@ -5,19 +5,16 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public class ChangeRemoverCommand : OfficeCommand
+    public abstract class ChangeRemoverCommand : OfficeCommand
     {
-        private IRemover sourceRemover;
+        protected abstract IRemover sourceRemover { get; }
 
-        public ChangeRemoverCommand(IOfficeCommandable receiver, IRemover remover)
-            :base(receiver)
-        {
-            this.sourceRemover = remover;
-        }
+        public ChangeRemoverCommand(IOfficeCommandable receiver)
+            : base(receiver) { }
 
         public override void Execute()
         {
-            throw new NotImplementedException();
+            Receiver.RemoveTool = sourceRemover;
         }
     }
 }

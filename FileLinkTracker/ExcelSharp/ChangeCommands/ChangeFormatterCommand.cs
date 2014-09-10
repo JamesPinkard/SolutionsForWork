@@ -5,19 +5,15 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public class ChangeFormatterCommand : OfficeCommand
+    public abstract class ChangeFormatterCommand : OfficeCommand
     {
-        private IFormatter sourceFormatter;
+        protected abstract IFormatter sourceFormatter { get; }
 
-        public ChangeFormatterCommand(IOfficeCommandable receiver, IFormatter formatter)
-            : base(receiver)
-        {
-            this.sourceFormatter = formatter;
-        }
+        public ChangeFormatterCommand(IOfficeCommandable receiver) : base(receiver) { }
 
         public override void Execute()
         {
-            throw new NotImplementedException();
+            Receiver.Formatter = sourceFormatter;
         }
     }
 }

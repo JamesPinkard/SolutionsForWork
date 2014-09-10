@@ -88,13 +88,13 @@ namespace ExcelSharpTests
             Assert.That(sourceSheet, Is.InstanceOf<LinkSheetWriter>());
 
             // Change Formatter Test
-            OfficeCommand changeToDirectoryFormatter = new ChangeFormatterCommand(sourceSheet, new DirectoryFormatter());
+            OfficeCommand changeToDirectoryFormatter = new ChangeToDirectoryFormatter(sourceSheet);
             changeToDirectoryFormatter.Execute();
 
             Assert.That(sourceSheet.Formatter, Is.InstanceOf<DirectoryFormatter>());
 
             // Change Remover Tool Test
-            OfficeCommand changeToLinkRemover = new ChangeRemoverCommand(sourceSheet, new LinkRemover());
+            OfficeCommand changeToLinkRemover = new ChangeToLinkRemover(sourceSheet);
             changeToLinkRemover.Execute();
 
             Assert.That(sourceSheet.RemoveTool, Is.InstanceOf<LinkRemover>());

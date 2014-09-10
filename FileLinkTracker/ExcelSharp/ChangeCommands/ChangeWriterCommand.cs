@@ -17,7 +17,7 @@ namespace ExcelSharp
         
         public override void Execute()
         {
-            throw new NotImplementedException();
+            Receiver.Writer = sourceWriter;
         }
     }
 }
