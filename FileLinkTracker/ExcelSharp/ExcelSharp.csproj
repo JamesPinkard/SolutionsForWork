@@ -40,14 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangeFormatterCommand.cs" />
-    <Compile Include="ChangeRemoverCommand.cs" />
-    <Compile Include="ChangeSheetTransactions\ChangeToolCommand.cs" />
-    <Compile Include="ChangeSheetTransactions\OfficeCommand.cs" />
-    <Compile Include="ChangeWriterCommand.cs" />
-    <Compile Include="DirectoryFormatter.cs" />
-    <Compile Include="LinkFormatter.cs" />
-    <Compile Include="LinkRemover.cs" />
+    <Compile Include="ChangeCommands\ChangeFormatterCommand.cs" />
+    <Compile Include="ChangeCommands\ChangeRemoverCommand.cs" />
+    <Compile Include="ChangeCommands\ChangeToolCommand.cs" />
+    <Compile Include="OfficeCommand.cs" />
+    <Compile Include="ChangeCommands\ChangeWriterCommand.cs" />
+    <Compile Include="Formatter\DirectoryFormatter.cs" />
+    <Compile Include="Formatter\LinkFormatter.cs" />
+    <Compile Include="Removers\LinkRemover.cs" />
     <Compile Include="OfficeInterfaces\ICommand.cs" />
     <Compile Include="OfficeInterfaces\IFormatter.cs" />
     <Compile Include="OfficeInterfaces\IOfficeCommandable.cs" />
@@ -56,19 +56,19 @@
     <Compile Include="OfficeInterfaces\IEmbedder.cs" />
     <Compile Include="OfficeInterfaces\IOfficeWriter.cs" />
     <Compile Include="SheetFactories\LinkSheetFactory.cs" />
-    <Compile Include="SheetTools\LinkSheetTool.cs" />
-    <Compile Include="SheetWriters\LinkSheetWriter.cs" />
+    <Compile Include="Tools\LinkSheetTool.cs" />
+    <Compile Include="Writers\LinkSheetWriter.cs" />
     <Compile Include="CoreClasses\ReadOnlySheet.cs" />
     <Compile Include="CoreClasses\Sheet.cs" />
     <Compile Include="CoreClasses\ExcelOperator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SheetFactories\SheetFactory.cs" />
-    <Compile Include="SheetTools\EmbedTool.cs" />
-    <Compile Include="SheetWriters\AbstractTableWriter.cs" />
-    <Compile Include="SheetWriters\SheetWriter.cs" />
+    <Compile Include="Tools\EmbedTool.cs" />
+    <Compile Include="Writers\AbstractTableWriter.cs" />
+    <Compile Include="Writers\SheetWriter.cs" />
     <Compile Include="SheetFactories\TableSheetFactory.cs" />
-    <Compile Include="SheetTools\TableSheetTool.cs" />
-    <Compile Include="SheetWriters\TableSheetWriter.cs" />
+    <Compile Include="Tools\TableSheetTool.cs" />
+    <Compile Include="Writers\TableSheetWriter.cs" />
     <Compile Include="CoreClasses\Workbook.cs" />
   </ItemGroup>
   <ItemGroup>
