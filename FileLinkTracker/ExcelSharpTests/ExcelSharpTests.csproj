@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IntegrationTests.cs" />
-    <Compile Include="TestHelper.cs" />
     <Compile Include="ExcelOperatorTests.cs" />
     <Compile Include="FactoryOfSheetsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
