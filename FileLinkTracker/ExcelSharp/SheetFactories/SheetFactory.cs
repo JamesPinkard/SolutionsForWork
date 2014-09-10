@@ -11,31 +11,36 @@ namespace ExcelSharp
         
         private Workbook workbook;
         private IOfficeWriter sheetWriter;
-        private IOfficeTool sheetTools;
+        private IEmbedder sheetTools;
 
         public SheetFactory(Workbook workbook)
         {
             this.workbook = workbook;
         }
-
+                
         protected abstract IOfficeWriter MakeSheetWriter();
-        protected abstract IOfficeTool MakeSheetTools();
+        protected abstract IEmbedder MakeSheetTools();
         
-        public void ExecuteMake()
+        // IOfficeMaker methods
+        public IOfficeCommandable ExecuteMake()
         {
             MakeSheetUtilites();
 
             Sheet newSheet = MakeNewSheet();
             
             SetSheetUtilities(newSheet);
+
+            return (IOfficeCommandable)workbook.RecentlyAddedSheet;
         }
-        public void ExecuteCopy()
+        public IOfficeCommandable ExecuteCopy()
         {
             MakeSheetUtilites();
             
             Sheet copySheet = CopySheet();
 
             SetSheetUtilities(copySheet);
+
+            return (IOfficeCommandable)workbook.RecentlyAddedSheet;
         }
         
         private void MakeSheetUtilites()
@@ -60,7 +65,7 @@ namespace ExcelSharp
         {
 
             newSheet.Writer = sheetWriter;
-            newSheet.Tools = sheetTools;
+            newSheet.EmbedTool = sheetTools;
         }
     }
 }

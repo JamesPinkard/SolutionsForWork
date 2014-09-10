@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public class TableSheetTool : SheetTool
+    public class TableSheetTool : EmbedTool
     {
         // TODO Implement Table Sheet Tools
     }

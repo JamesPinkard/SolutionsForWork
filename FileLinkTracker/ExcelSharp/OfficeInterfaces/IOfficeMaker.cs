@@ -5,8 +5,9 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public class LinkSheetTool : EmbedTool
+    public interface IOfficeMaker
     {
-        // TODO Implement Link Sheet Tools
+        IOfficeCommandable ExecuteMake();
+        IOfficeCommandable ExecuteCopy();
     }
 }

@@ -74,7 +74,7 @@ namespace ExcelSharpTests
             
             testFactory.ExecuteMake();
 
-            Assert.That(testWorkbook.RecentlyAddedSheet.Tools, Is.InstanceOf(toolType));
+            Assert.That(testWorkbook.RecentlyAddedSheet.EmbedTool, Is.InstanceOf(toolType));
         }
 
         [Test]
@@ -105,7 +105,7 @@ namespace ExcelSharpTests
 
             testFactory.ExecuteCopy();
 
-            Assert.That(testWorkbook.RecentlyAddedSheet.Tools, Is.InstanceOf(toolType));
+            Assert.That(testWorkbook.RecentlyAddedSheet.EmbedTool, Is.InstanceOf(toolType));
         }
 
         // TODO Need to implement SheetHandler Class

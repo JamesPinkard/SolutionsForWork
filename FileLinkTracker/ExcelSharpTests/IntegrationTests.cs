@@ -52,9 +52,10 @@ namespace ExcelSharpTests
             // Should Not Return Anything; Should just add sheets to workbook
             tableSheetFactory.ExecuteMake(); //First Test
             Sheet tableSheet = testWorkbook.RecentlyAddedSheet;
+            
             Assert.That(testWorkbook.sheetCount, Is.EqualTo(initialSheetCount + 1));
             Assert.That(tableSheet.Writer, Is.TypeOf(typeof(TableSheetWriter)));
-            Assert.That(tableSheet.Tools, Is.TypeOf(typeof(TableSheetTool)));
+            Assert.That(tableSheet.EmbedTool, Is.TypeOf(typeof(TableSheetTool)));
 
             SheetFactory linkSheetFactory = new LinkSheetFactory(testWorkbook);            
             linkSheetFactory.ExecuteCopy();
@@ -62,8 +63,41 @@ namespace ExcelSharpTests
 
             Assert.That(testWorkbook.sheetCount, Is.EqualTo(initialSheetCount + 2));
             Assert.That(linkSheet.Writer, Is.TypeOf(typeof(LinkSheetWriter)));
-            Assert.That(linkSheet.Tools, Is.TypeOf(typeof(LinkSheetTool)));
+            Assert.That(linkSheet.EmbedTool, Is.TypeOf(typeof(LinkSheetTool)));
             Assert.That(linkSheet.wbPath, Is.EqualTo(tableSheet.wbPath));
         }        
+
+        [Test]
+        public void ChangeSheetCommands_IntegrationTest()
+        {
+            // Set up Sheet
+            IOfficeMaker tableSheetFactory = new TableSheetFactory(testWorkbook);
+            IOfficeCommandable sourceSheet = tableSheetFactory.ExecuteMake();
+            
+            // Change Embed Tool Test
+            OfficeCommand changeToLinkTool = new ChangeToolCommand(sourceSheet, new LinkSheetTool());
+            changeToLinkTool.Execute();
+
+            Assert.That(sourceSheet.isValid(), Is.True);
+            Assert.That(sourceSheet.EmbedTool, Is.InstanceOf<LinkSheetTool>());
+            
+            // Change Writer Test
+            OfficeCommand changeToLinkSheetWriter = new ChangeWriterCommand(sourceSheet, new LinkSheetWriter());
+            changeToLinkSheetWriter.Execute();
+
+            Assert.That(sourceSheet, Is.InstanceOf<LinkSheetWriter>());
+
+            // Change Formatter Test
+            OfficeCommand changeToDirectoryFormatter = new ChangeFormatterCommand(sourceSheet, new DirectoryFormatter());
+            changeToDirectoryFormatter.Execute();
+
+            Assert.That(sourceSheet.Formatter, Is.InstanceOf<DirectoryFormatter>());
+
+            // Change Remover Tool Test
+            OfficeCommand changeToLinkRemover = new ChangeRemoverCommand(sourceSheet, new LinkRemover());
+            changeToLinkRemover.Execute();
+
+            Assert.That(sourceSheet.RemoveTool, Is.InstanceOf<LinkRemover>());
+        }
     }
 }

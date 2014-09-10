@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ExcelSharp
 {
-    public class LinkSheetTool : EmbedTool
+    public interface IFormatter
     {
-        // TODO Implement Link Sheet Tools
+        void Format();
     }
 }

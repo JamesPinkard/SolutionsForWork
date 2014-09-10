@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace ExcelSharp
 {
-    public interface IOfficeTool
+    public interface IEmbedder
     {
-        void Create();
-        void Format();
-        void Remove();
+        void Embed();
     }
 }

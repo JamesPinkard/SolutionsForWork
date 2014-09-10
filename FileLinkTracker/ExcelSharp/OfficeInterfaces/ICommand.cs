@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ExcelSharp
 {
-    public interface IOfficeMaker
+    interface ICommand
     {
-        void ExecuteMake();
-        void ExecuteCopy();
+        void Execute();
     }
 }

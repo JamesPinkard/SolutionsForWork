@@ -16,7 +16,7 @@ namespace ExcelSharp
             return tableWriter;
         }
 
-        protected override IOfficeTool MakeSheetTools()
+        protected override IEmbedder MakeSheetTools()
         {
             TableSheetTool tableTools = new TableSheetTool();
             return tableTools;

@@ -40,9 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IOfficeMaker.cs" />
-    <Compile Include="SheetTools\IOfficeTool.cs" />
-    <Compile Include="SheetWriters\IOfficeWriter.cs" />
+    <Compile Include="ChangeFormatterCommand.cs" />
+    <Compile Include="ChangeRemoverCommand.cs" />
+    <Compile Include="ChangeSheetTransactions\ChangeToolCommand.cs" />
+    <Compile Include="ChangeSheetTransactions\OfficeCommand.cs" />
+    <Compile Include="ChangeWriterCommand.cs" />
+    <Compile Include="DirectoryFormatter.cs" />
+    <Compile Include="LinkFormatter.cs" />
+    <Compile Include="LinkRemover.cs" />
+    <Compile Include="OfficeInterfaces\ICommand.cs" />
+    <Compile Include="OfficeInterfaces\IFormatter.cs" />
+    <Compile Include="OfficeInterfaces\IOfficeCommandable.cs" />
+    <Compile Include="OfficeInterfaces\IOfficeMaker.cs" />
+    <Compile Include="OfficeInterfaces\IRemover.cs" />
+    <Compile Include="OfficeInterfaces\IEmbedder.cs" />
+    <Compile Include="OfficeInterfaces\IOfficeWriter.cs" />
     <Compile Include="SheetFactories\LinkSheetFactory.cs" />
     <Compile Include="SheetTools\LinkSheetTool.cs" />
     <Compile Include="SheetWriters\LinkSheetWriter.cs" />
@@ -51,7 +63,7 @@
     <Compile Include="CoreClasses\ExcelOperator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SheetFactories\SheetFactory.cs" />
-    <Compile Include="SheetTools\SheetTool.cs" />
+    <Compile Include="SheetTools\EmbedTool.cs" />
     <Compile Include="SheetWriters\AbstractTableWriter.cs" />
     <Compile Include="SheetWriters\SheetWriter.cs" />
     <Compile Include="SheetFactories\TableSheetFactory.cs" />
@@ -88,6 +100,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

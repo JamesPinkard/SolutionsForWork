@@ -18,7 +18,7 @@ namespace ExcelSharp
             return linkWriter;
         }
 
-        protected override IOfficeTool MakeSheetTools()
+        protected override IEmbedder MakeSheetTools()
         {
             LinkSheetTool linkTool = new LinkSheetTool();
             return linkTool;
