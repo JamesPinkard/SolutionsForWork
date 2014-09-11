@@ -16,6 +16,16 @@ namespace ExcelSharp
         public IOfficeWriter Writer{ get; set; }
         public IFormatter Formatter { get; set; }
         public string wbPath { get; private set; }
+
+        public bool Exists
+        {
+            get
+            {
+                if (worksheet == null) { return false; }
+                else { return true; }
+            }            
+        }
+        
         
         private Excel._Worksheet worksheet;
         private Excel.Range startRange;
@@ -103,14 +113,7 @@ namespace ExcelSharp
             this.endRange = worksheet.get_Range(endCell);
             string[,] cellRange = new string[1 + endRange.Row - startRange.Row, 1 + endRange.Column - startRange.Column];
             return cellRange;
-        } 
-
-
-
-
-
-
-  
+        }  
 
 
         public void ClearCells()

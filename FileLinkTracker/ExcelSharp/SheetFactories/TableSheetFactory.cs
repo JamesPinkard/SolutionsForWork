@@ -12,13 +12,13 @@ namespace ExcelSharp
 
         protected override IOfficeWriter MakeSheetWriter()
         {
-            TableSheetWriter tableWriter = new TableSheetWriter();
+            TableWriter tableWriter = new TableWriter();
             return tableWriter;
         }
 
         protected override IEmbedder MakeSheetTools()
         {
-            TableSheetTool tableTools = new TableSheetTool();
+            TableEmbedder tableTools = new TableEmbedder();
             return tableTools;
         }
     }

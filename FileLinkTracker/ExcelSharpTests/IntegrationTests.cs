@@ -54,16 +54,16 @@ namespace ExcelSharpTests
             Sheet tableSheet = testWorkbook.RecentlyAddedSheet;
             
             Assert.That(testWorkbook.sheetCount, Is.EqualTo(initialSheetCount + 1));
-            Assert.That(tableSheet.Writer, Is.TypeOf(typeof(TableSheetWriter)));
-            Assert.That(tableSheet.EmbedTool, Is.TypeOf(typeof(TableSheetTool)));
+            Assert.That(tableSheet.Writer, Is.TypeOf(typeof(TableWriter)));
+            Assert.That(tableSheet.EmbedTool, Is.TypeOf(typeof(TableEmbedder)));
 
             SheetFactory linkSheetFactory = new LinkSheetFactory(testWorkbook);            
             linkSheetFactory.ExecuteCopy();
             Sheet linkSheet = testWorkbook.RecentlyAddedSheet;
 
             Assert.That(testWorkbook.sheetCount, Is.EqualTo(initialSheetCount + 2));
-            Assert.That(linkSheet.Writer, Is.TypeOf(typeof(LinkSheetWriter)));
-            Assert.That(linkSheet.EmbedTool, Is.TypeOf(typeof(LinkSheetTool)));
+            Assert.That(linkSheet.Writer, Is.TypeOf(typeof(LinkWriter)));
+            Assert.That(linkSheet.EmbedTool, Is.TypeOf(typeof(LinkEmbedder)));
             Assert.That(linkSheet.wbPath, Is.EqualTo(tableSheet.wbPath));
         }        
 
@@ -75,17 +75,17 @@ namespace ExcelSharpTests
             IOfficeCommandable sourceSheet = tableSheetFactory.ExecuteMake();
             
             // Change Embed Tool Test
-            OfficeCommand changeToLinkTool = new ChangeToolCommand(sourceSheet, new LinkSheetTool());
+            OfficeCommand changeToLinkTool = new ChangeToLinkEmbedder(sourceSheet);
             changeToLinkTool.Execute();
 
             Assert.That(sourceSheet.isValid(), Is.True);
-            Assert.That(sourceSheet.EmbedTool, Is.InstanceOf<LinkSheetTool>());
+            Assert.That(sourceSheet.EmbedTool, Is.InstanceOf<LinkEmbedder>());
             
             // Change Writer Test
-            OfficeCommand changeToLinkSheetWriter = new ChangeWriterCommand(sourceSheet, new LinkSheetWriter());
+            OfficeCommand changeToLinkSheetWriter = new ChangeToLinkWriter(sourceSheet);
             changeToLinkSheetWriter.Execute();
 
-            Assert.That(sourceSheet, Is.InstanceOf<LinkSheetWriter>());
+            Assert.That(sourceSheet, Is.InstanceOf<LinkWriter>());
 
             // Change Formatter Test
             OfficeCommand changeToDirectoryFormatter = new ChangeToDirectoryFormatter(sourceSheet);

@@ -17,21 +17,21 @@ namespace ExcelSharpTests
         [Test]
         public void ChangeToolCommand_ChangeToLinkTool_ReceiverHasLinkTool()
         {
-            testCommand = new ChangeToolCommand(testSheet, new LinkSheetTool());
+            testCommand = new ChangeToLinkEmbedder(testSheet);
             
             testCommand.Execute();
 
-            Assert.That(testSheet.EmbedTool, Is.InstanceOf<LinkSheetTool>());
+            Assert.That(testSheet.EmbedTool, Is.InstanceOf<LinkEmbedder>());
         }
 
         [Test]
         public void ChangeWriterCommand_ChangeToLinkSheetWriter_ReceiverHasLinkSheetWriter()
         {
-            testCommand = new ChangeWriterCommand(testSheet, new LinkSheetWriter());
+            testCommand = new ChangeToLinkWriter(testSheet);
 
             testCommand.Execute();
 
-            Assert.That(testSheet.Writer, Is.InstanceOf<LinkSheetWriter>());
+            Assert.That(testSheet.Writer, Is.InstanceOf<LinkWriter>());
         }          
 
         [Test]

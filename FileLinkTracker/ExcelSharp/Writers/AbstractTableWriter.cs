@@ -34,7 +34,7 @@ namespace ExcelSharp
         {
             // TODO Implement Template Method
         }
-
+        
         public void Write()
         {
             throw new NotImplementedException();

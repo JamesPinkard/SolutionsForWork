@@ -7,12 +7,12 @@ namespace ExcelSharp
 {
     public abstract class OfficeCommand : ICommand
     {
+        private IOfficeCommandable commandReceiver;
         protected IOfficeCommandable Receiver
         {
             get { return commandReceiver; }
             set { commandReceiver = value; }
         }
-        private IOfficeCommandable commandReceiver;
 
         // Constructor
         public OfficeCommand(IOfficeCommandable receiver)

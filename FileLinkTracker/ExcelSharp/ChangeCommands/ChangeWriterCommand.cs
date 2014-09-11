@@ -5,15 +5,12 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public class ChangeWriterCommand : OfficeCommand
+    public abstract class ChangeWriterCommand : OfficeCommand
     {
-        private IOfficeWriter sourceWriter;
+        protected abstract IOfficeWriter sourceWriter { get; }
 
-        public ChangeWriterCommand(IOfficeCommandable receiver, IOfficeWriter writer)
-            : base(receiver)
-        {
-            this.sourceWriter = writer;
-        }
+        public ChangeWriterCommand(IOfficeCommandable receiver)
+            : base(receiver) { }
         
         public override void Execute()
         {

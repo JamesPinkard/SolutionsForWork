@@ -5,8 +5,8 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public class LinkSheetTool : EmbedTool
+    public class TableWriter : OfficeWriter
     {
-        // TODO Implement Link Sheet Tools
+        // TODO Implement Table Sheet Writer
     }
 }

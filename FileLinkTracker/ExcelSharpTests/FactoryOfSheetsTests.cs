@@ -99,11 +99,11 @@ namespace ExcelSharpTests
         }
         protected override Type writerType
         {
-            get { return typeof(TableSheetWriter); }
+            get { return typeof(TableWriter); }
         }
         protected override Type toolType
         {
-            get { return typeof(TableSheetTool); }
+            get { return typeof(TableEmbedder); }
         }
        
         protected override SheetFactory getTestFactory()
@@ -133,12 +133,12 @@ namespace ExcelSharpTests
 
         protected override Type writerType
         {
-            get { return typeof(LinkSheetWriter); }
+            get { return typeof(LinkWriter); }
         }
 
         protected override Type toolType
         {
-            get { return typeof(LinkSheetTool); }
+            get { return typeof(LinkEmbedder); }
         }
 
         protected override SheetFactory getTestFactory()

@@ -66,7 +66,21 @@ namespace ExcelSharpTests
             testArray = testSheet.GetRange("A1", "C4");
 
             Assert.That(testArray, Is.EqualTo(namesArray));
-        }     
+        }
+        
+        [Test]
+        public void Sheet_Exists_ReturnTrueIfWorksheetSet()
+        {
+            Sheet testSheet = setupTestSheet();
+
+            Assert.That(testSheet.Exists, Is.True);
+            testWorkbook.AddSheet();
+            testSheet = testWorkbook.GetSheet(2);
+
+            testSheet.DeleteSheet();
+
+            Assert.That(testSheet.Exists, Is.False);
+        }
          
         #region GetCellsTest Helper Methods
         /// <summary>
