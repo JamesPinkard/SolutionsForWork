@@ -7,14 +7,16 @@ namespace ExcelSharp
 {
     public class LinkSheetFactory : SheetFactory
     {
-        public LinkSheetFactory(Workbook workbook) : base (workbook)
+        public string DirectoryPath { get; set; }
+        public LinkSheetFactory(Workbook workbook, string directoryPath)
+            : base(workbook)
         {
-
+            DirectoryPath = directoryPath;
         }
 
         protected override IOfficeWriter MakeSheetWriter()
         {
-            LinkWriter linkWriter = new LinkWriter();
+            DirectoryLinkWriter linkWriter = new DirectoryLinkWriter(DirectoryPath);
             return linkWriter;
         }
 

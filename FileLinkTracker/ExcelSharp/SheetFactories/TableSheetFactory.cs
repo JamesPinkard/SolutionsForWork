@@ -12,7 +12,7 @@ namespace ExcelSharp
 
         protected override IOfficeWriter MakeSheetWriter()
         {
-            TableWriter tableWriter = new TableWriter();
+            AqtestTableWriter tableWriter = new AqtestTableWriter();
             return tableWriter;
         }
 

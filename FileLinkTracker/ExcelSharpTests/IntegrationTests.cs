@@ -54,15 +54,15 @@ namespace ExcelSharpTests
             Sheet tableSheet = testWorkbook.RecentlyAddedSheet;
             
             Assert.That(testWorkbook.sheetCount, Is.EqualTo(initialSheetCount + 1));
-            Assert.That(tableSheet.Writer, Is.TypeOf(typeof(TableWriter)));
+            Assert.That(tableSheet.Writer, Is.TypeOf(typeof(AqtestTableWriter)));
             Assert.That(tableSheet.EmbedTool, Is.TypeOf(typeof(TableEmbedder)));
 
-            SheetFactory linkSheetFactory = new LinkSheetFactory(testWorkbook);            
+            SheetFactory linkSheetFactory = new LinkSheetFactory(testWorkbook, Directory.GetCurrentDirectory());            
             linkSheetFactory.ExecuteCopy();
             Sheet linkSheet = testWorkbook.RecentlyAddedSheet;
 
             Assert.That(testWorkbook.sheetCount, Is.EqualTo(initialSheetCount + 2));
-            Assert.That(linkSheet.Writer, Is.TypeOf(typeof(LinkWriter)));
+            Assert.That(linkSheet.Writer, Is.TypeOf(typeof(DirectoryLinkWriter)));
             Assert.That(linkSheet.EmbedTool, Is.TypeOf(typeof(LinkEmbedder)));
             Assert.That(linkSheet.wbPath, Is.EqualTo(tableSheet.wbPath));
         }        
@@ -82,10 +82,10 @@ namespace ExcelSharpTests
             Assert.That(sourceSheet.EmbedTool, Is.InstanceOf<LinkEmbedder>());
             
             // Change Writer Test
-            OfficeCommand changeToLinkSheetWriter = new ChangeToLinkWriter(sourceSheet);
+            OfficeCommand changeToLinkSheetWriter = new ChangeToLinkWriter(sourceSheet, Directory.GetCurrentDirectory());
             changeToLinkSheetWriter.Execute();
 
-            Assert.That(sourceSheet, Is.InstanceOf<LinkWriter>());
+            Assert.That(sourceSheet.Writer, Is.InstanceOf<DirectoryLinkWriter>());
 
             // Change Formatter Test
             OfficeCommand changeToDirectoryFormatter = new ChangeToDirectoryFormatter(sourceSheet);
@@ -98,6 +98,25 @@ namespace ExcelSharpTests
             changeToLinkRemover.Execute();
 
             Assert.That(sourceSheet.RemoveTool, Is.InstanceOf<LinkRemover>());
+        }
+
+        [Test]
+        public void GenerateLinksCommand_IntegrationTest()
+        {
+            // Set up Sheet            
+            IOfficeMaker linkSheetFactory = new LinkSheetFactory(testWorkbook, Directory.GetCurrentDirectory());
+            Sheet sourceSheet = (Sheet)linkSheetFactory.ExecuteMake();
+
+            DateTime testDate = new DateTime(2014, 5, 21);
+
+            WorkbookCommand generateWorkbookLinks = new WorkbookHyperlinksCommand(testWorkbook, testDate);
+            generateWorkbookLinks.Execute();
+            
+            Assert.That(sourceSheet.Writer, Is.InstanceOf<LinkWriter>());
+
+            DirectoryLinkWriter sourceWriter = sourceSheet.Writer as DirectoryLinkWriter;
+            Assert.That(sourceWriter.Date, Is.EqualTo(testDate));
+            Assert.That(sourceWriter.DirectoryPath, Is.EqualTo(Directory.GetCurrentDirectory()));
         }
     }
 }

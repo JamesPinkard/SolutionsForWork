@@ -61,7 +61,9 @@
     <Compile Include="OfficeInterfaces\IOfficeWriter.cs" />
     <Compile Include="SheetFactories\LinkSheetFactory.cs" />
     <Compile Include="Embedders\LinkEmbedder.cs" />
-    <Compile Include="Writers\LinkWriter.cs" />
+    <Compile Include="WorkbookCommand.cs" />
+    <Compile Include="WorkbookHyperlinksCommand.cs" />
+    <Compile Include="Writers\DirectoryLinkWriter.cs" />
     <Compile Include="CoreClasses\ReadOnlySheet.cs" />
     <Compile Include="CoreClasses\Sheet.cs" />
     <Compile Include="CoreClasses\ExcelOperator.cs" />
@@ -69,11 +71,12 @@
     <Compile Include="SheetFactories\SheetFactory.cs" />
     <Compile Include="Embedders\EmbedTool.cs" />
     <Compile Include="Writers\AbstractTableWriter.cs" />
-    <Compile Include="Writers\OfficeWriter.cs" />
+    <Compile Include="Writers\LinkWriter.cs" />
     <Compile Include="SheetFactories\TableSheetFactory.cs" />
     <Compile Include="Embedders\TableEmbedder.cs" />
-    <Compile Include="Writers\TableWriter.cs" />
+    <Compile Include="Writers\AqtestTableWriter.cs" />
     <Compile Include="CoreClasses\Workbook.cs" />
+    <Compile Include="Writers\TableWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

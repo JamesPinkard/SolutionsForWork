@@ -99,7 +99,7 @@ namespace ExcelSharpTests
         }
         protected override Type writerType
         {
-            get { return typeof(TableWriter); }
+            get { return typeof(AqtestTableWriter); }
         }
         protected override Type toolType
         {
@@ -133,7 +133,7 @@ namespace ExcelSharpTests
 
         protected override Type writerType
         {
-            get { return typeof(LinkWriter); }
+            get { return typeof(DirectoryLinkWriter); }
         }
 
         protected override Type toolType
@@ -143,7 +143,7 @@ namespace ExcelSharpTests
 
         protected override SheetFactory getTestFactory()
         {
-            return new LinkSheetFactory(testWorkbook);
+            return new LinkSheetFactory(testWorkbook, Directory.GetCurrentDirectory());
         }
     }
 }

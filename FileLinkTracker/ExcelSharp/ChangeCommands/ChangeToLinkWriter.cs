@@ -8,11 +8,16 @@ namespace ExcelSharp
 {
     public class ChangeToLinkWriter : ChangeWriterCommand
     {
+        public string DirectoryPath { get; set; }
         protected override IOfficeWriter sourceWriter
         {
-            get { return new LinkWriter(); }
+            get { return new DirectoryLinkWriter(DirectoryPath); }
         }
 
-        public ChangeToLinkWriter(IOfficeCommandable receiver) : base(receiver) { }
+        public ChangeToLinkWriter(IOfficeCommandable receiver, string directoryPath)
+            : base(receiver)
+        {
+            DirectoryPath = directoryPath;
+        }
     }
 }

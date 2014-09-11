@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using ExcelSharp;
+using System.IO;
 
 namespace ExcelSharpTests
 {
@@ -27,11 +28,11 @@ namespace ExcelSharpTests
         [Test]
         public void ChangeWriterCommand_ChangeToLinkSheetWriter_ReceiverHasLinkSheetWriter()
         {
-            testCommand = new ChangeToLinkWriter(testSheet);
+            testCommand = new ChangeToLinkWriter(testSheet, Directory.GetCurrentDirectory());
 
             testCommand.Execute();
 
-            Assert.That(testSheet.Writer, Is.InstanceOf<LinkWriter>());
+            Assert.That(testSheet.Writer, Is.InstanceOf<DirectoryLinkWriter>());
         }          
 
         [Test]
