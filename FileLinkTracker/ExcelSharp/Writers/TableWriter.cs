@@ -8,12 +8,7 @@ namespace ExcelSharp
 {
     public abstract class TableWriter : IOfficeWriter
     {
-        public void WriteFields()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void WriteBody()
+        public void Write()
         {
             throw new NotImplementedException();
         }

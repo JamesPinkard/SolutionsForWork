@@ -5,37 +5,25 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    abstract public class AbstractTableWriter : IOfficeWriter
+    abstract public class NullableTableWriter : IOfficeWriter
     {
 
         // From Null object example in Agile Principles
-        public static readonly AbstractTableWriter NULL = new NullSheetWriter();
+        public static readonly NullableTableWriter NULL = new NullSheetWriter();
 
-        private class NullSheetWriter : AbstractTableWriter
+        private class NullSheetWriter : NullableTableWriter
         {
 
-            public override void WriteFields()
+            public override void Write()
             {
                 
             }
 
-            public override void WriteBody()
-            {
-                
-            }
         }
 
-        virtual public void WriteFields()
-        {
-            // TODO Implement Template Method
-        }
 
-        virtual public void WriteBody()
-        {
-            // TODO Implement Template Method
-        }
         
-        public void Write()
+        public virtual void Write()
         {
             throw new NotImplementedException();
         }

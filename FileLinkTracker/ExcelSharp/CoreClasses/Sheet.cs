@@ -11,12 +11,7 @@ namespace ExcelSharp
     {
         public int Index { get; set; }        
         public string Name { get { return worksheet.Name; } }
-        public IEmbedder EmbedTool { get; set; }
-        public IRemover RemoveTool { get; set; }
-        public IOfficeWriter Writer{ get; set; }
-        public IFormatter Formatter { get; set; }
         public string wbPath { get; private set; }
-
         public bool Exists
         {
             get
@@ -25,13 +20,24 @@ namespace ExcelSharp
                 else { return true; }
             }            
         }
+
+
+        public IEmbedder EmbedTool { get; set; }
+        public IRemover RemoveTool { get; set; }
+        public IOfficeWriter Writer{ get; set; }
+        public IFormatter Formatter { get; set; }        
         
-        
+        private CellGetter cellGetter;
         private Excel._Worksheet worksheet;
         private Excel.Range startRange;
         private Excel.Range endRange;
-        protected AbstractTableWriter sheetWriter;
+        protected NullableTableWriter sheetWriter;
 
+        public Sheet(Excel._Worksheet worksheet )
+        {
+            this.worksheet = worksheet;
+            cellGetter = new CellGetter(worksheet);
+        }
         public bool isValid()
         {
             if (worksheet == null)
@@ -43,10 +49,6 @@ namespace ExcelSharp
                 return true;
             }
         }
-        public Sheet(Excel._Worksheet worksheet )
-        {
-            this.worksheet = worksheet;
-        }
         public void DeleteSheet()
         {
             this.Index = 0;
@@ -55,7 +57,29 @@ namespace ExcelSharp
             this.worksheet.Delete();
             this.worksheet = null;
         }
+        public void ClearCells()
+        {
+            worksheet.Cells.Clear();
+        }
         public string[,] GetCells(int rows, int columns)
+        {
+            string [,] cells = cellGetter.GetCells(rows, columns);
+            return cells;
+        }
+        public string[,] GetRange(string startCell, string endCell)
+        {
+            string[,] range = cellGetter.GetRange(startCell, endCell);
+            return range;
+        } 
+
+        private class CellGetter
+        {
+            Excel._Worksheet worksheet;
+            public CellGetter(Excel._Worksheet worksheet)
+            {
+                this.worksheet = worksheet;
+            }
+            public string[,] GetCells(int rows, int columns)
         {
             worksheet.Activate();
             Excel.Range activeRange = worksheet.get_Range("A1");
@@ -64,7 +88,7 @@ namespace ExcelSharp
             assignCellArray(rows, columns, cellArray);
             return cellArray;
         }
-        public string[,] GetRange(string startCell, string endCell)
+            public string[,] GetRange(string startCell, string endCell)
         {
             worksheet.Activate();
             Excel.Range activeRange = worksheet.get_Range(startCell);
@@ -73,53 +97,46 @@ namespace ExcelSharp
             assignCellBlock(cellArray);
             return cellArray;
         }
-
-
-        private void assignCellArray(int rows, int columns, string[,] cellArray)
-        {
-            for (int r = 0; r < rows; r++)
+            
+            private void assignCellArray(int rows, int columns, string[,] cellArray)
             {
-                assignRows(columns, cellArray, r);
+                for (int r = 0; r < rows; r++)
+                {
+                    assignRows(columns, cellArray, r);
+                }
             }
-        }
-        private void assignRows(int columns, string[,] cellArray, int r)
-        {
-            for (int c = 0; c < columns; c++)
+            private void assignRows(int columns, string[,] cellArray, int r)
             {
-                assignCell(cellArray, r, c);
+                for (int c = 0; c < columns; c++)
+                {
+                    assignCell(cellArray, r, c);
+                }
             }
-        }
-        private void assignCell(string[,] cellArray, int r, int c)
-        {
-            cellArray[r, c] = (string)this.worksheet.Cells[r + 1, c + 1].Value;
-        } 
-        private void assignCellBlock(string[,] cellArray)
-        {
-            for (int row = startRange.Row - 1; row < endRange.Row; row++)
+            private void assignCell(string[,] cellArray, int r, int c)
             {
-                assignRowBlocks(cellArray, row);
-            }
-        }
-        private void assignRowBlocks(string[,] cellArray, int row)
-        {
-            for (int col = startRange.Column - 1; col < endRange.Column; col++)
+                cellArray[r, c] = (string)this.worksheet.Cells[r + 1, c + 1].Value;
+            } 
+            private void assignCellBlock(string[,] cellArray)
             {
-                assignCell(cellArray, row, col);
+                for (int row = startRange.Row - 1; row < endRange.Row; row++)
+                {
+                    assignRowBlocks(cellArray, row);
+                }
             }
-        }
-        private string[,] setCellArray(string startCell, string endCell)
-        {
-            this.startRange = worksheet.get_Range(startCell);
-            this.endRange = worksheet.get_Range(endCell);
-            string[,] cellRange = new string[1 + endRange.Row - startRange.Row, 1 + endRange.Column - startRange.Column];
-            return cellRange;
-        }  
-
-
-        public void ClearCells()
-        {
-            worksheet.Cells.Clear();
-        }
-
+            private void assignRowBlocks(string[,] cellArray, int row)
+            {
+                for (int col = startRange.Column - 1; col < endRange.Column; col++)
+                {
+                    assignCell(cellArray, row, col);
+                }
+            }
+            private string[,] setCellArray(string startCell, string endCell)
+            {
+                this.startRange = worksheet.get_Range(startCell);
+                this.endRange = worksheet.get_Range(endCell);
+                string[,] cellRange = new string[1 + endRange.Row - startRange.Row, 1 + endRange.Column - startRange.Column];
+                return cellRange;
+            }
+        }        
     }
 }

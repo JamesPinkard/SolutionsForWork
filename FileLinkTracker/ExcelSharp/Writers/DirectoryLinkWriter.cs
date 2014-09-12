@@ -16,5 +16,10 @@ namespace ExcelSharp
             linkSourceDirectory = new DirectoryInfo(directoryPath);
             DirectoryPath = directoryPath;
         }
+
+        protected override void subWrite()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

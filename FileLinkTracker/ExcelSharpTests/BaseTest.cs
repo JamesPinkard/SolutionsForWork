@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using NSubstitute;
+
 using ExcelSharp;
 
 namespace ExcelSharpTests
@@ -13,7 +15,9 @@ namespace ExcelSharpTests
     {
         protected ExcelOperator testOperator { get; set; }
         protected Workbook testWorkbook { get; set; }
-        protected Sheet testSheet { get; set; }        
+        protected Sheet testSheet { get; set; }
+        protected IFileSystem testFile = Substitute.For<IFileSystem>();
+   
 
         [TestFixtureSetUp]
         public void InitializeWorksheet()

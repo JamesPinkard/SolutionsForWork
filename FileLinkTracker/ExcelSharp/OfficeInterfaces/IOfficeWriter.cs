@@ -7,7 +7,6 @@ namespace ExcelSharp
 {
     public interface IOfficeWriter
     {
-        void WriteFields();
-        void WriteBody();
+        void Write();
     }
 }

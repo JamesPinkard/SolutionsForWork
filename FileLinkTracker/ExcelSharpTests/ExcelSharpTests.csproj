@@ -49,6 +49,8 @@
     <Compile Include="IntegrationTests.cs" />
     <Compile Include="ExcelOperatorTests.cs" />
     <Compile Include="FactoryOfSheetsTests.cs" />
+    <Compile Include="IFileSystem.cs" />
+    <Compile Include="LinkWriterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SheetTests.cs" />
     <Compile Include="WorkbookTests.cs" />

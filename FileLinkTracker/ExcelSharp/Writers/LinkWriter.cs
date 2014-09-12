@@ -10,14 +10,11 @@ namespace ExcelSharp
     {
         public DateTime Date { get; protected set; }
 
-        public void WriteFields()
+        public void Write()
         {
-            throw new NotImplementedException();
+            subWrite();
         }
 
-        public void WriteBody()
-        {
-            throw new NotImplementedException();
-        }
+        protected abstract void subWrite();
     }
 }
