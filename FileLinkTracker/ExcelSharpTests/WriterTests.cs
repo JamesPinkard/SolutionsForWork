@@ -8,11 +8,16 @@ using ExcelSharp;
 
 namespace ExcelSharpTests
 {
-    [Category("LinkWriterTests")]
+    [Category("WriterTests")]
     [TestFixture]
-    public class LinkWriterTests : BaseTest
+    public class WriterTests : BaseTest
     {
         protected LinkWriter testWriter;
-         
+        
+        [Test]
+        public void LinkWriter_NonRecursiveWrite_SheetHasDirectoryFileHyperlinks()
+        {
+
+        }
     }
 }

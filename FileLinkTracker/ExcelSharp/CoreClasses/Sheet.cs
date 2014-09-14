@@ -22,13 +22,42 @@ namespace ExcelSharp
         }
 
 
-        public IEmbedder EmbedTool { get; set; }
-        public IRemover RemoveTool { get; set; }
-        public IOfficeWriter Writer{ get; set; }
-        public IFormatter Formatter { get; set; }        
-        
-        private CellGetter cellGetter;
-        private Excel._Worksheet worksheet;
+        public IRemover RemoveTool
+        {
+            get { return remover; }
+            set
+            {
+                remover = value;
+                remover.worksheet = this.worksheet;            
+            }
+        }
+        public IOfficeWriter Writer
+        {
+            get { return writer; }
+            set 
+            {
+                writer = value;
+                writer.worksheet = this.worksheet;
+            }
+        }
+        public IFormatter Formatter
+        {
+            get { return formatter; }
+            set 
+            {
+                formatter = value;
+                formatter.worksheet = this.worksheet;
+            }
+        }       
+        public IEmbedder EmbedTool
+        {
+            get { return embedder; }
+            set 
+            {
+                embedder = value;
+                embedder.worksheet = this.worksheet;
+            }
+        }
         protected NullableTableWriter sheetWriter;
 
         public Sheet(Excel._Worksheet worksheet )
@@ -50,8 +79,8 @@ namespace ExcelSharp
         public void DeleteSheet()
         {
             this.Index = 0;
-            this.Writer = null;
-            this.EmbedTool = null;
+            this.writer = null;
+            this.embedder = null;
             this.worksheet.Delete();
             this.worksheet = null;
         }
@@ -70,6 +99,8 @@ namespace ExcelSharp
             return range;
         } 
 
+        
+        private CellGetter cellGetter;
         private class CellGetter
         {
             Excel._Worksheet worksheet;
@@ -137,6 +168,11 @@ namespace ExcelSharp
                 string[,] cellRange = new string[1 + endRange.Row - startRange.Row, 1 + endRange.Column - startRange.Column];
                 return cellRange;
             }
-        }        
+        }                
+        private Excel._Worksheet worksheet;
+        private IEmbedder embedder;
+        private IRemover remover;
+        private IOfficeWriter writer;
+        private IFormatter formatter;        
     }
 }

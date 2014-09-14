@@ -63,7 +63,6 @@ namespace ExcelSharp
         }
         private void SetSheetUtilities(Sheet newSheet)
         {
-
             newSheet.Writer = sheetWriter;
             newSheet.EmbedTool = sheetTools;
         }

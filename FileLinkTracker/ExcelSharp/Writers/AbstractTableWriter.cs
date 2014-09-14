@@ -30,7 +30,8 @@ namespace ExcelSharp
 
         public Microsoft.Office.Interop.Excel._Worksheet worksheet
         {
-            get { throw new NotImplementedException(); }
+            get;
+            set;
         }
     }
 }

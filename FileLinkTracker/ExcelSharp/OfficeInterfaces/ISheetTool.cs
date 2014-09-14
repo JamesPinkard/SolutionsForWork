@@ -9,6 +9,6 @@ namespace ExcelSharp
 {
     public interface ISheetTool
     {
-        Excel._Worksheet worksheet { get; }
+        Excel._Worksheet worksheet { get; set; }
     }
 }
