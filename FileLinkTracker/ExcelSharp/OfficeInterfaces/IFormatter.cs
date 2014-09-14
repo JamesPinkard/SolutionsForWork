@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExcelSharp
 {
-    public interface IFormatter
+    public interface IFormatter : ISheetTool
     {
         void Format();
     }

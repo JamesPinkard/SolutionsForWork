@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ExcelSharp
 {
-    public interface IRemover : ISheetTool
+    public interface ISheetTool
     {
-        void Remove();
+        Excel._Worksheet worksheet { get; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExcelSharp
 {
-    public interface IEmbedder
+    public interface IEmbedder : ISheetTool
     {
         void Embed();
     }

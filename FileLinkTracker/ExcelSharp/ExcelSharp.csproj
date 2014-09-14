@@ -51,6 +51,7 @@
     <Compile Include="ChangeCommands\ChangeWriterCommand.cs" />
     <Compile Include="Formatter\DirectoryFormatter.cs" />
     <Compile Include="Formatter\LinkFormatter.cs" />
+    <Compile Include="OfficeInterfaces\ISheetTool.cs" />
     <Compile Include="Removers\LinkRemover.cs" />
     <Compile Include="OfficeInterfaces\ICommand.cs" />
     <Compile Include="OfficeInterfaces\IFormatter.cs" />

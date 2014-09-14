@@ -27,5 +27,10 @@ namespace ExcelSharp
         {
             throw new NotImplementedException();
         }
+
+        public Microsoft.Office.Interop.Excel._Worksheet worksheet
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

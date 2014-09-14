@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using NSubstitute;
-
 using ExcelSharp;
 
 namespace ExcelSharpTests

@@ -29,8 +29,6 @@ namespace ExcelSharp
         
         private CellGetter cellGetter;
         private Excel._Worksheet worksheet;
-        private Excel.Range startRange;
-        private Excel.Range endRange;
         protected NullableTableWriter sheetWriter;
 
         public Sheet(Excel._Worksheet worksheet )
@@ -98,6 +96,8 @@ namespace ExcelSharp
             return cellArray;
         }
             
+            private Excel.Range startRange;
+            private Excel.Range endRange;
             private void assignCellArray(int rows, int columns, string[,] cellArray)
             {
                 for (int r = 0; r < rows; r++)

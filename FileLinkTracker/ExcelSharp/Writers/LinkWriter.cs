@@ -16,5 +16,10 @@ namespace ExcelSharp
         }
 
         protected abstract void subWrite();
+
+        public Microsoft.Office.Interop.Excel._Worksheet worksheet
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }
