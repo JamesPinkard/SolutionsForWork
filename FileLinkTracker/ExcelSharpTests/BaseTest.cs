@@ -15,7 +15,16 @@ namespace ExcelSharpTests
         protected ExcelOperator testOperator { get; set; }
         protected Workbook testWorkbook { get; set; }
         protected Sheet testSheet { get; set; }
+        protected SheetFactory testFactory
+        {
+            get { return tFactory; }
+            set { tFactory = value; }
+        }
+
+
         protected IFileSystem testFile = Substitute.For<IFileSystem>();
+        
+        private SheetFactory tFactory;
    
 
         [TestFixtureSetUp]
