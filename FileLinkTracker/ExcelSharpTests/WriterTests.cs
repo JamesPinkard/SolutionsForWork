@@ -40,7 +40,7 @@ namespace ExcelSharpTests
         }
 
         [Test]
-        public void DirectoryLinkWriter_GetSubdirectories_ReturnSubdirectories()
+        public void DirectoryLinkWriter_Write_SheetHasDirectoryAndSearchDate()
         {
             SetupLinkSheetAndFactory();
             directoryWriter = (DirectoryLinkWriter)testSheet.Writer;
