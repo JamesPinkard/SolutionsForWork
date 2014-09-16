@@ -44,11 +44,17 @@ namespace ExcelSharpTests
         {
             SetupLinkSheetAndFactory();
             directoryWriter = (DirectoryLinkWriter)testSheet.Writer;
-            string[] heading = { Directory.GetCurrentDirectory(), directoryWriter.Date.ToString() };
+            directoryWriter.Date = DateTime.Today;
+            string strWriterDate = directoryWriter.Date.ToString();
+            string[,] heading ={ { Directory.GetCurrentDirectory(), strWriterDate} };
 
             directoryWriter.Write();
 
-            Assert.That(testSheet.GetCells(1, 2), Is.EqualTo(heading));
+            Assert.That(testSheet.GetRange("A1","B1"), Is.EqualTo(heading));
         }
+
+        // TODO Error if link writer is set twice
+        // Message: Use a sheet factory or change sheet command
+        //  to initialize sheet properly.
     }
 }

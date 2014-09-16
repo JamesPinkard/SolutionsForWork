@@ -81,6 +81,7 @@ namespace ExcelSharpTests
 
             Assert.That(testSheet.Exists, Is.False);
         }
+        // Check that string can return other values
          
         #region GetCellsTest Helper Methods
         /// <summary>

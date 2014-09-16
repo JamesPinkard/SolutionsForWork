@@ -143,10 +143,6 @@ namespace ExcelSharp
                     assignCell(cellArray, r, c);
                 }
             }
-            private void assignCell(string[,] cellArray, int r, int c)
-            {
-                cellArray[r, c] = (string)this.worksheet.Cells[r + 1, c + 1].Value;
-            } 
             private void assignCellBlock(string[,] cellArray)
             {
                 for (int row = startRange.Row - 1; row < endRange.Row; row++)
@@ -161,6 +157,11 @@ namespace ExcelSharp
                     assignCell(cellArray, row, col);
                 }
             }
+            private void assignCell(string[,] cellArray, int r, int c)
+            {
+                object cellValue = (object)this.worksheet.Cells[r + 1, c + 1].Value;
+                cellArray[r, c] = (string)cellValue.ToString();
+            } 
             private string[,] setCellArray(string startCell, string endCell)
             {
                 this.startRange = worksheet.get_Range(startCell);
