@@ -55,8 +55,21 @@ namespace ExcelSharp
         private IEnumerable<string> getFileNames(DirectoryInfo directory)
         {
             FileInfo[] linkFiles = directory.GetFiles();
-            var fileNames = from f in linkFiles
-                            select f.Name;
+            IEnumerable<string> fileNames;
+
+            
+            if (IsDateSet == false )
+            {
+                fileNames = from f in linkFiles
+                              select f.Name;                
+            }
+            else
+            {
+                fileNames = from f in linkFiles
+                            where f.CreationTime.Date == LinkDate.Date
+                            select f.Name; 
+            }
+            
             return fileNames;
         }
         private void writeFileNames(IEnumerable<string> fileNames)
