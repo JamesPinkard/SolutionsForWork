@@ -99,6 +99,7 @@ namespace ExcelSharpTests
 
             Assert.That(filesInSheet, Is.EquivalentTo(fileNames));
             Console.WriteLine(directoryWriter.DirectoryPath);
+
         }
         
             private IEnumerable<string> getFileNames(string directoryPath)
