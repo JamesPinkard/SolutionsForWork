@@ -22,6 +22,22 @@ namespace ExcelSharpTests
         protected abstract Type toolType { get; }
 
         //TODO Make Sure Added sheet name is "Sheet1"
+
+        [Test]
+        public void SheetFactory_ExecuteWithWorkbook_NewSheetNameIsSheet1()
+        {
+            testFactory = getTestFactory();
+
+            Sheet testSheet = testFactory.ExecuteMake() as Sheet;
+
+            Console.WriteLine(testWorkbook.sheetCount.ToString());
+            Console.WriteLine(testWorkbook.RecentlyAddedSheet.Name);
+            foreach (var sheet in testWorkbook.Sheets)
+            {
+                Console.WriteLine(sheet.Name);
+            }
+            Assert.That(testSheet.Name, Is.EqualTo("Sheet7"));
+        }
         
         [Test]
         public void SheetFactory_ExecuteWithWorkbook_MakesNewSheet()

@@ -40,14 +40,6 @@ namespace ExcelSharp
             this.ActiveSheet = Sheets[0];
         }            
 
-        public void AddSheet()
-        {
-            sheetCounter += 1;
-            workbookSheets.Add();
-            
-            Excel._Worksheet ws = getEndSheet();
-            initializeNewSheet(ws);
-        }
         public void RemoveSheet()
         {
             sheetCounter -= 1;            
@@ -69,6 +61,13 @@ namespace ExcelSharp
             Excel._Worksheet activeSheet = sheetDict[ActiveSheet];
             activeSheet.Activate();
         }
+        public void AddSheet()
+        {
+            sheetCounter += 1;            
+
+            Excel._Worksheet ws = workbookSheets.Add(Type.Missing, getEndSheet());
+            initializeNewSheet(ws);
+        }
         public void CopySheet(Sheet originalSheet)
         {
             Excel._Worksheet oSheet = sheetDict[originalSheet];
@@ -86,6 +85,11 @@ namespace ExcelSharp
         {
             Excel._Worksheet ws = workbookSheets[sheetCount];
             return ws;
+        }
+        private Excel._Worksheet getFirstSheet()
+        {
+            Excel._Worksheet firstWs = workbookSheets[1];
+            return firstWs;
         }
         private void initializeNewSheet(Excel._Worksheet ws)
         {

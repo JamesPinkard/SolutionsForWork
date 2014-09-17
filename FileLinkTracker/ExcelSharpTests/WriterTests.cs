@@ -171,10 +171,6 @@ namespace ExcelSharpTests
 
 
         // TODO Test that sheet has hyperlinks
-        // TODO Test for Date is Not Null
-
-
-
         // TODO Error if link writer is set twice
         // Message: Use a sheet factory or change sheet command
         //  to initialize sheet properly.
