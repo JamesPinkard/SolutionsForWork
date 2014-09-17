@@ -42,8 +42,8 @@ namespace ExcelSharpTests
             testFactory = new LinkSheetFactory(testWorkbook, relativeSolutionDirectory);
             linkSheet = testFactory.ExecuteMake() as Sheet;
             return linkSheet.Writer as DirectoryLinkWriter;
-        }
-                
+        }                
+        
         [Test]
         public void LinkSheetFactory_LinkSheet_SourceIsCurrentDirectory()
         {
@@ -51,6 +51,16 @@ namespace ExcelSharpTests
             testWriter = (LinkWriter)linkSheet.Writer;                              
 
             Assert.That(testWriter.Source, Is.EqualTo(Directory.GetCurrentDirectory()));
+        }
+
+        [Test]
+        public void DirectoryLinkWriter_SetDate_IsDateSetIsTrue()
+        {
+            directoryWriter = SetupSolutionDirectoryWriter();
+
+            directoryWriter.LinkDate = DateTime.Today;
+
+            Assert.That(directoryWriter.IsDateSet, Is.True);
         }
 
         [Test]
@@ -109,7 +119,6 @@ namespace ExcelSharpTests
                                                 select f.Name;
                 return fileNames;
             }
-
             private static FileInfo[] getFilesInSolutionDirectory(string directoryPath)
             {
                 DirectoryInfo solutionDirectory = new DirectoryInfo(directoryPath);

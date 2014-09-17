@@ -1,24 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\FileLinkTracker\ExcelSharpTests\ExcelSharpTests.nunit" total="5" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-09-17" time="15:30:39">
+<test-results name="C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\FileLinkTracker\ExcelSharpTests\ExcelSharpTests.nunit" total="6" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-09-17" time="16:08:05">
   <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.5485" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Users\jpinkard\Documents\GitHub\Support_Packages\NUnit.Runners.2.6.3\tools" machine-name="JAMESPINKARD-PC" user="jpinkard" user-domain="INTERA" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Project" name="C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\FileLinkTracker\ExcelSharpTests\ExcelSharpTests.nunit" executed="True" result="Success" success="True" time="4.792" asserts="0">
+  <test-suite type="Project" name="C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\FileLinkTracker\ExcelSharpTests\ExcelSharpTests.nunit" executed="True" result="Success" success="True" time="3.322" asserts="0">
     <results>
-      <test-suite type="Assembly" name="C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\FileLinkTracker\ExcelSharpTests\bin\Debug\ExcelSharpTests.dll" executed="True" result="Success" success="True" time="4.777" asserts="0">
+      <test-suite type="Assembly" name="C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\FileLinkTracker\ExcelSharpTests\bin\Debug\ExcelSharpTests.dll" executed="True" result="Success" success="True" time="3.307" asserts="0">
         <results>
-          <test-suite type="Namespace" name="ExcelSharpTests" executed="True" result="Success" success="True" time="4.776" asserts="0">
+          <test-suite type="Namespace" name="ExcelSharpTests" executed="True" result="Success" success="True" time="3.307" asserts="0">
             <results>
-              <test-suite type="TestFixture" name="WriterTests" executed="True" result="Success" success="True" time="4.773" asserts="0">
+              <test-suite type="TestFixture" name="WriterTests" executed="True" result="Success" success="True" time="3.305" asserts="0">
                 <categories>
                   <category name="WriterTests" />
                 </categories>
                 <results>
-                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_Write_SheetHasFirstSubdirectoryAfterFileList" executed="True" result="Success" success="True" time="0.688" asserts="2" />
-                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_WriteWithDate_SheetHasDirectoryAndSearchDate" executed="True" result="Success" success="True" time="0.140" asserts="1" />
+                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_SetDate_IsDateSetIsTrue" executed="True" result="Success" success="True" time="0.343" asserts="1" />
+                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_Write_SheetHasFirstSubdirectoryAfterFileList" executed="True" result="Success" success="True" time="0.273" asserts="2" />
+                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_WriteWithDate_SheetHasDirectoryAndSearchDate" executed="True" result="Success" success="True" time="0.059" asserts="1" />
                   <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_WriteWithDate_SheetOnlyHasFilesCreatedOnDate" executed="True" result="Success" success="True" time="0.030" asserts="1" />
-                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_WriteWithNullDate_SheetHasFilesInDirectory" executed="True" result="Success" success="True" time="0.059" asserts="1" />
-                  <test-case name="ExcelSharpTests.WriterTests.LinkSheetFactory_LinkSheet_SourceIsCurrentDirectory" executed="True" result="Success" success="True" time="0.012" asserts="1" />
+                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_WriteWithNullDate_SheetHasFilesInDirectory" executed="True" result="Success" success="True" time="0.116" asserts="1" />
+                  <test-case name="ExcelSharpTests.WriterTests.LinkSheetFactory_LinkSheet_SourceIsCurrentDirectory" executed="True" result="Success" success="True" time="0.070" asserts="1" />
                 </results>
               </test-suite>
             </results>
