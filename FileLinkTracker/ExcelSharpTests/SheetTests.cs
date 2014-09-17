@@ -81,6 +81,19 @@ namespace ExcelSharpTests
 
             Assert.That(testSheet.Exists, Is.False);
         }
+
+        [Test]
+        public void Sheet_GetColumnRange_ReturnsColumnValues()
+        {
+            Sheet testSheet = setupTestSheet();
+            string[] firstNames = new string[] { "James", "Laura", "Victor" };
+
+            List<string> testNames = testSheet.GetColumnRange("A", 2, 4);
+
+            Assert.That(testNames, Is.EqualTo(firstNames));
+        }
+
+
         // Check that string can return other values
          
         #region GetCellsTest Helper Methods

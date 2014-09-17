@@ -103,20 +103,31 @@ namespace ExcelSharpTests
         [Test]
         public void GenerateLinksCommand_IntegrationTest()
         {
-            // Set up Sheet            
-            IOfficeMaker linkSheetFactory = new LinkSheetFactory(testWorkbook, Directory.GetCurrentDirectory());
-            Sheet sourceSheet = (Sheet)linkSheetFactory.ExecuteMake();
+            // Set up Sheet with Current Directory           
+            LinkSheetFactory linkSheetFactory = new LinkSheetFactory(testWorkbook, Directory.GetCurrentDirectory());
+            Sheet CurrentDirectorySheet = linkSheetFactory.ExecuteMake() as Sheet;
+
+            // Set up Sheet with Solution Directory
+            string solutionRelativePath = "../../../.";
+            linkSheetFactory.DirectoryPath = solutionRelativePath;
+            Sheet SolutionDirectorySheet = linkSheetFactory.ExecuteMake() as Sheet;
 
             DateTime testDate = new DateTime(2014, 5, 21);
 
-            WorkbookCommand generateWorkbookLinks = new WorkbookHyperlinksCommand(testWorkbook, testDate);
+            WorkbookCommand generateWorkbookLinks = new HyperlinksByDateCommand(testWorkbook, testDate);
             generateWorkbookLinks.Execute();
-            
-            Assert.That(sourceSheet.Writer, Is.InstanceOf<LinkWriter>());
 
-            DirectoryLinkWriter sourceWriter = sourceSheet.Writer as DirectoryLinkWriter;
-            Assert.That(sourceWriter.Date, Is.EqualTo(testDate));
-            Assert.That(sourceWriter.DirectoryPath, Is.EqualTo(Directory.GetCurrentDirectory()));
+            WriterAssertions(CurrentDirectorySheet, testDate, Directory.GetCurrentDirectory());
+            WriterAssertions(SolutionDirectorySheet, testDate, solutionRelativePath);
+            
+        }
+
+        private static void WriterAssertions(Sheet testSheet, DateTime testDate, string pathToDirectory)
+        {
+            DirectoryLinkWriter sourceWriter = testSheet.Writer as DirectoryLinkWriter;
+            Assert.That(testSheet.Writer, Is.InstanceOf<LinkWriter>());
+            Assert.That(sourceWriter.LinkDate, Is.EqualTo(testDate));
+            Assert.That(sourceWriter.DirectoryPath, Is.EqualTo(pathToDirectory));
         }
     }
 }

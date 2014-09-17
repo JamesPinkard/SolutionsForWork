@@ -8,7 +8,7 @@ namespace ExcelSharp
 {
     public abstract class LinkWriter : IOfficeWriter
     {
-        public DateTime Date { get; protected set; }
+        public DateTime LinkDate { get; set; }
         public string Source { get; set; }
         public Microsoft.Office.Interop.Excel._Worksheet worksheet
         {

@@ -47,6 +47,7 @@
     <Compile Include="ChangeCommands\ChangeEmbedderCommand.cs" />
     <Compile Include="ChangeCommands\ChangeToLinkWriter.cs" />
     <Compile Include="ChangeCommands\ChangeToLinkRemover.cs" />
+    <Compile Include="CoreClasses\CellGetter.cs" />
     <Compile Include="OfficeCommand.cs" />
     <Compile Include="ChangeCommands\ChangeWriterCommand.cs" />
     <Compile Include="Formatter\DirectoryFormatter.cs" />

@@ -5,16 +5,16 @@ using System.Text;
 
 namespace ExcelSharp
 {
-    public class WorkbookHyperlinksCommand : WorkbookCommand
+    public class HyperlinksByDateCommand : WorkbookCommand
     {
         private DateTime linkDate;
 
-        public DateTime MyProperty
+        public DateTime LinkDate
         {
             get { return linkDate; }            
         }
         
-        public WorkbookHyperlinksCommand(Workbook workbook, DateTime linkDate) : base(workbook)
+        public HyperlinksByDateCommand(Workbook workbook, DateTime linkDate) : base(workbook)
         {
             this.linkDate = linkDate;
         }
