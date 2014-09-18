@@ -168,6 +168,7 @@ namespace ExcelSharpTests
                 // Get File Count
                 fileCount = getDirectoryFileCount();
 
+<<<<<<< HEAD
                 // Get Sub Directories
                 myTestDirectory = getSolutionDirectory();
                 subDirectories = myTestDirectory.GetDirectories();
@@ -199,6 +200,9 @@ namespace ExcelSharpTests
         }
         
         // TODO Test that sheet has sub directory hyperlinks
+=======
+        // TODO Test that sheet has hyperlinks
+>>>>>>> origin/master
         // TODO Error if link writer is set twice
         // Message: Use a sheet factory or change sheet command
         //  to initialize sheet properly.
