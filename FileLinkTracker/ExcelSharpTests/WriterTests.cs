@@ -16,6 +16,13 @@ namespace ExcelSharpTests
         private LinkWriter testWriter;
         private DirectoryLinkWriter directoryWriter;
         private Sheet linkSheet;
+        private DirectoryInfo myTestDirectory;
+        private int fileCount;
+        private DirectoryInfo[] subDirectories;
+        private IEnumerable<string> subFiles;
+        private List<string> subFilesInSheet;
+        private string subDirectoryInSheet;
+
         private void SetupLinkSheet()
         {
             linkSheet = (Sheet)testFactory.ExecuteMake();
@@ -42,7 +49,7 @@ namespace ExcelSharpTests
             testFactory = new LinkSheetFactory(testWorkbook, relativeSolutionDirectory);
             linkSheet = testFactory.ExecuteMake() as Sheet;
             return linkSheet.Writer as DirectoryLinkWriter;
-        }                
+        }
         
         [Test]
         public void LinkSheetFactory_LinkSheet_SourceIsCurrentDirectory()
@@ -135,18 +142,13 @@ namespace ExcelSharpTests
         [Test]
         public void DirectoryLinkWriter_Write_SheetHasFirstSubdirectoryAfterFileList()
         {
-            // Get File Count
             directoryWriter = SetupSolutionDirectoryWriter();
-            int fileCount = getDirectoryFileCount();
+            SetupSubDirectoryTest();
 
-            // Get Sub Directories
-            DirectoryInfo solutionDirectory = getSolutionDirectory();
-            DirectoryInfo[] subDirectories = solutionDirectory.GetDirectories();
-            IEnumerable<string> subFiles = getFileNames(subDirectories[0].FullName);
-
+            // Execute
             directoryWriter.Write();
-            List<string> subFilesInSheet = getFilesInSheet(subFiles, fileCount + 2);
-            string subDirectoryInSheet = linkSheet.GetCell(fileCount + 1 , 0);
+
+            GetSubDirectoryAndSubFilesInSheet();
             
 
             Assert.That(subFilesInSheet, Is.EquivalentTo(subFiles));
@@ -154,27 +156,49 @@ namespace ExcelSharpTests
             Console.WriteLine(directoryWriter.DirectoryPath);
         }
 
-            private int getDirectoryFileCount()
-        {            
-            IEnumerable<string> fileNames = getFileNames(directoryWriter.DirectoryPath);
-            int fileCount = fileNames.Count<string>();
-            return fileCount;
-        }
-            private DirectoryInfo getSolutionDirectory()
+            private void GetSubDirectoryAndSubFilesInSheet()
         {
-            DirectoryInfo solutionDirectory = new DirectoryInfo(directoryWriter.DirectoryPath);
-            return solutionDirectory;
+            // Get Files in sheet
+            subFilesInSheet = getFilesInSheet(subFiles, fileCount + 2);
+            subDirectoryInSheet = linkSheet.GetCell(fileCount + 1, 0);
         }
 
+            private void SetupSubDirectoryTest()
+            {
+                // Get File Count
+                fileCount = getDirectoryFileCount();
+
+                // Get Sub Directories
+                myTestDirectory = getSolutionDirectory();
+                subDirectories = myTestDirectory.GetDirectories();
+                subFiles = getFileNames(subDirectories[0].FullName);
+            }
+               
+                private int getDirectoryFileCount()
+            {            
+                IEnumerable<string> fileNames = getFileNames(directoryWriter.DirectoryPath);
+                int fileCount = fileNames.Count<string>();
+                return fileCount;
+            }
+                private DirectoryInfo getSolutionDirectory()
+                {
+                    DirectoryInfo solutionDirectory = new DirectoryInfo(directoryWriter.DirectoryPath);
+                    return solutionDirectory;
+                }
+
+        [Test]
+        public void DirectoryLinkWriter_Write_SheetDirectoryIsHyperlink()
+        {
+            directoryWriter = SetupSolutionDirectoryWriter();
+            myTestDirectory = getSolutionDirectory();
+
+            directoryWriter.Write();
+            string pathToHyperlink = directoryWriter.GetHyperlinkPath("A1");
+
+            Assert.That(pathToHyperlink, Is.EqualTo(myTestDirectory.FullName));            
+        }
         
-
-
-
-        // TODO Test that sheet has hyperlinks
-        // TODO Test for Date is Not Null
-
-
-
+        // TODO Test that sheet has sub directory hyperlinks
         // TODO Error if link writer is set twice
         // Message: Use a sheet factory or change sheet command
         //  to initialize sheet properly.

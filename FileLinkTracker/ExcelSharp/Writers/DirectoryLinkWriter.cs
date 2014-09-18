@@ -21,6 +21,13 @@ namespace ExcelSharp
             DirectoryPath = directoryPath;
             base.Source = directoryPath;            
         }
+        public string GetHyperlinkPath(string p)
+        {
+            Excel.Range hlinkRange = worksheet.get_Range(p);
+            Excel.Hyperlink hlink = hlinkRange.Hyperlinks[1];
+            string path = hlink.Address;
+            return path;
+        }
 
         protected override void subWrite()
         {           
@@ -38,21 +45,38 @@ namespace ExcelSharp
             }
         }
 
-        // private helpers
+        #region writeHeader
         private void writeHeader()
+        {
+            writePathAndDate();
+
+            AddAbsolutePathHyperlink();
+        }
+        
+            private void writePathAndDate()
         {
             Excel.Range header = worksheet.get_Range("A1:B1");
             header.Cells[1] = DirectoryPath;
             header.Cells[2] = LinkDate;
+        }        
+
+            private void AddAbsolutePathHyperlink()
+        {
+            string absoluteDirPath = Path.GetFullPath(DirectoryPath);
+            Excel.Range dir = worksheet.get_Range("A1", "A1");
+            worksheet.Hyperlinks.Add(dir, absoluteDirPath);
         }
-        
+        #endregion
+
+        #region writeFileNamesToColumnB
         // If Null get all files in Directory
         private void writeFileNamesToColumnB(DirectoryInfo sub)
         {
             var subFiles = getFileNames(sub);
             writeFileNames(subFiles);
         }
-        private IEnumerable<string> getFileNames(DirectoryInfo directory)
+        
+            private IEnumerable<string> getFileNames(DirectoryInfo directory)
         {
             FileInfo[] linkFiles = directory.GetFiles();
             IEnumerable<string> fileNames;
@@ -72,7 +96,8 @@ namespace ExcelSharp
             
             return fileNames;
         }
-        private void writeFileNames(IEnumerable<string> fileNames)
+        
+            private void writeFileNames(IEnumerable<string> fileNames)
         {            
             
             foreach (var file in fileNames)
@@ -81,12 +106,14 @@ namespace ExcelSharp
                 rowIndex++;
             }
         }
-
+        #endregion
+        
         private void writeDirectoryPathToColumnA(DirectoryInfo sub)
         {
             directoryColumn.Cells[rowIndex] = sub.FullName;
             rowIndex++;
         }
+
 
 
 
