@@ -72,7 +72,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SheetFactories\SheetFactory.cs" />
     <Compile Include="Embedders\EmbedTool.cs" />
-    <Compile Include="Writers\AbstractTableWriter.cs" />
     <Compile Include="Writers\LinkWriter.cs" />
     <Compile Include="SheetFactories\TableSheetFactory.cs" />
     <Compile Include="Embedders\TableEmbedder.cs" />

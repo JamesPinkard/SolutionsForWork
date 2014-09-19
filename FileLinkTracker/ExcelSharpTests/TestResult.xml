@@ -1,52 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\FileLinkTracker\ExcelSharpTests\ExcelSharpTests.nunit" total="39" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-09-18" time="13:59:34">
+<test-results name="C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\FileLinkTracker\ExcelSharpTests\ExcelSharpTests.nunit" total="39" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-09-19" time="09:35:36">
   <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.5485" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Users\jpinkard\Documents\GitHub\Support_Packages\NUnit.Runners.2.6.3\tools" machine-name="JAMESPINKARD-PC" user="jpinkard" user-domain="INTERA" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Project" name="C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\FileLinkTracker\ExcelSharpTests\ExcelSharpTests.nunit" executed="True" result="Failure" success="False" time="41.487" asserts="0">
+  <test-suite type="Project" name="C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\FileLinkTracker\ExcelSharpTests\ExcelSharpTests.nunit" executed="True" result="Failure" success="False" time="24.459" asserts="0">
     <results>
-      <test-suite type="Assembly" name="C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\FileLinkTracker\ExcelSharpTests\bin\Debug\ExcelSharpTests.dll" executed="True" result="Failure" success="False" time="41.439" asserts="0">
+      <test-suite type="Assembly" name="C:\Users\jpinkard\Documents\GitHub\SolutionsForWork\FileLinkTracker\ExcelSharpTests\bin\Debug\ExcelSharpTests.dll" executed="True" result="Failure" success="False" time="24.444" asserts="0">
         <results>
-          <test-suite type="Namespace" name="ExcelSharpTests" executed="True" result="Failure" success="False" time="41.439" asserts="0">
+          <test-suite type="Namespace" name="ExcelSharpTests" executed="True" result="Failure" success="False" time="24.444" asserts="0">
             <results>
-              <test-suite type="TestFixture" name="ChangeCommandTests" executed="True" result="Success" success="True" time="19.905" asserts="0">
+              <test-suite type="TestFixture" name="ChangeCommandTests" executed="True" result="Success" success="True" time="6.162" asserts="0">
                 <categories>
                   <category name="Change Command" />
                 </categories>
                 <results>
-                  <test-case name="ExcelSharpTests.ChangeCommandTests.ChangeToDirectoryFormatter_Execute_ReceiverHasDirectoryForm" executed="True" result="Success" success="True" time="0.035" asserts="1" />
+                  <test-case name="ExcelSharpTests.ChangeCommandTests.ChangeToDirectoryFormatter_Execute_ReceiverHasDirectoryForm" executed="True" result="Success" success="True" time="0.020" asserts="1" />
                   <test-case name="ExcelSharpTests.ChangeCommandTests.ChangeToLinkRemover_Execute_RecieverHasLinkRemover" executed="True" result="Success" success="True" time="0.001" asserts="1" />
                   <test-case name="ExcelSharpTests.ChangeCommandTests.ChangeToolCommand_ChangeToLinkTool_ReceiverHasLinkTool" executed="True" result="Success" success="True" time="0.001" asserts="1" />
                   <test-case name="ExcelSharpTests.ChangeCommandTests.ChangeWriterCommand_ChangeToLinkSheetWriter_ReceiverHasLinkSheetWriter" executed="True" result="Success" success="True" time="0.002" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="ExcelOperatorTests" executed="True" result="Success" success="True" time="4.772" asserts="0">
+              <test-suite type="TestFixture" name="ExcelOperatorTests" executed="True" result="Success" success="True" time="4.179" asserts="0">
                 <results>
-                  <test-case name="ExcelSharpTests.ExcelOperatorTests.ExcelOperator_CloseExcel_CloseExcelApplication" executed="True" result="Success" success="True" time="1.449" asserts="1">
+                  <test-case name="ExcelSharpTests.ExcelOperatorTests.ExcelOperator_CloseExcel_CloseExcelApplication" executed="True" result="Success" success="True" time="1.426" asserts="1">
                     <categories>
                       <category name="Slow Running" />
                     </categories>
                   </test-case>
-                  <test-case name="ExcelSharpTests.ExcelOperatorTests.ExcelOperator_Initialize_InitializesWorksheet" executed="True" result="Success" success="True" time="1.582" asserts="1">
+                  <test-case name="ExcelSharpTests.ExcelOperatorTests.ExcelOperator_Initialize_InitializesWorksheet" executed="True" result="Success" success="True" time="1.314" asserts="1">
                     <categories>
                       <category name="Slow Running" />
                     </categories>
                   </test-case>
-                  <test-case name="ExcelSharpTests.ExcelOperatorTests.ExcelOperator_NewWorkbook_OpensNewWorkbook" executed="True" result="Success" success="True" time="1.737" asserts="1">
+                  <test-case name="ExcelSharpTests.ExcelOperatorTests.ExcelOperator_NewWorkbook_OpensNewWorkbook" executed="True" result="Success" success="True" time="1.431" asserts="1">
                     <categories>
                       <category name="Slow Running" />
                     </categories>
                   </test-case>
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="IntegrationTests" executed="True" result="Failure" success="False" time="4.438" asserts="0">
+              <test-suite type="TestFixture" name="IntegrationTests" executed="True" result="Failure" success="False" time="2.604" asserts="0">
                 <categories>
                   <category name="Integration Test" />
                 </categories>
                 <results>
-                  <test-case name="ExcelSharpTests.IntegrationTests.ChangeSheetCommands_IntegrationTest" executed="True" result="Success" success="True" time="1.652" asserts="5" />
-                  <test-case name="ExcelSharpTests.IntegrationTests.FactoryOfTableSheets_IntegrationTest" executed="True" result="Success" success="True" time="0.121" asserts="7" />
-                  <test-case name="ExcelSharpTests.IntegrationTests.GenerateLinksCommand_IntegrationTest" executed="True" result="Error" success="False" time="0.565" asserts="0">
+                  <test-case name="ExcelSharpTests.IntegrationTests.ChangeSheetCommands_IntegrationTest" executed="True" result="Success" success="True" time="0.404" asserts="5" />
+                  <test-case name="ExcelSharpTests.IntegrationTests.FactoryOfTableSheets_IntegrationTest" executed="True" result="Success" success="True" time="0.120" asserts="7" />
+                  <test-case name="ExcelSharpTests.IntegrationTests.GenerateLinksCommand_IntegrationTest" executed="True" result="Error" success="False" time="0.118" asserts="0">
                     <failure>
                       <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
                       <stack-trace><![CDATA[at ExcelSharp.HyperlinksByDateCommand.Execute() in c:\Users\jpinkard\Documents\GitHub\SolutionsForWork\FileLinkTracker\ExcelSharp\WorkbookHyperlinksCommand.cs:line 23
@@ -56,68 +56,68 @@ at ExcelSharpTests.IntegrationTests.GenerateLinksCommand_IntegrationTest() in c:
                   </test-case>
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="LinkSheetFactoryTests" executed="True" result="Success" success="True" time="2.159" asserts="0">
+              <test-suite type="TestFixture" name="LinkSheetFactoryTests" executed="True" result="Success" success="True" time="2.171" asserts="0">
                 <categories>
                   <category name="Sheet Factory" />
                 </categories>
                 <results>
-                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithSheet_MakesNewSheet" executed="True" result="Success" success="True" time="0.031" asserts="1" />
-                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithSheet_NewSheetHasTableTools" executed="True" result="Success" success="True" time="0.021" asserts="1" />
-                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithSheet_NewSheetHasTableWriter" executed="True" result="Success" success="True" time="0.030" asserts="1" />
-                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_MakesNewSheet" executed="True" result="Success" success="True" time="0.020" asserts="1" />
-                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_NewSheetHasTableTools" executed="True" result="Success" success="True" time="0.013" asserts="1" />
-                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_NewSheetHasTableWriter" executed="True" result="Success" success="True" time="0.014" asserts="1" />
-                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_NewSheetNameIsSheet1" executed="True" result="Success" success="True" time="0.040" asserts="1" />
+                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithSheet_MakesNewSheet" executed="True" result="Success" success="True" time="0.028" asserts="1" />
+                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithSheet_NewSheetHasTableTools" executed="True" result="Success" success="True" time="0.019" asserts="1" />
+                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithSheet_NewSheetHasTableWriter" executed="True" result="Success" success="True" time="0.032" asserts="1" />
+                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_MakesNewSheet" executed="True" result="Success" success="True" time="0.021" asserts="1" />
+                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_NewSheetHasTableTools" executed="True" result="Success" success="True" time="0.014" asserts="1" />
+                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_NewSheetHasTableWriter" executed="True" result="Success" success="True" time="0.015" asserts="1" />
+                  <test-case name="ExcelSharpTests.LinkSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_NewSheetNameIsSheet1" executed="True" result="Success" success="True" time="0.028" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="SheetTests" executed="True" result="Success" success="True" time="2.564" asserts="0">
+              <test-suite type="TestFixture" name="SheetTests" executed="True" result="Success" success="True" time="2.321" asserts="0">
                 <categories>
                   <category name="Sheet Tests" />
                 </categories>
                 <results>
-                  <test-case name="ExcelSharpTests.SheetTests.Sheet_Exists_ReturnTrueIfWorksheetSet" executed="True" result="Success" success="True" time="0.016" asserts="2" />
-                  <test-case name="ExcelSharpTests.SheetTests.Sheet_GetCells_ReturnsArrayOfValuesBlockOfCells" executed="True" result="Success" success="True" time="0.441" asserts="2" />
+                  <test-case name="ExcelSharpTests.SheetTests.Sheet_Exists_ReturnTrueIfWorksheetSet" executed="True" result="Success" success="True" time="0.017" asserts="2" />
+                  <test-case name="ExcelSharpTests.SheetTests.Sheet_GetCells_ReturnsArrayOfValuesBlockOfCells" executed="True" result="Success" success="True" time="0.232" asserts="2" />
                   <test-case name="ExcelSharpTests.SheetTests.Sheet_GetColumnRange_ReturnsColumnValues" executed="True" result="Success" success="True" time="0.006" asserts="1" />
-                  <test-case name="ExcelSharpTests.SheetTests.Sheet_GetRange_ReturnsArrayOfValuesInRange" executed="True" result="Success" success="True" time="0.035" asserts="1" />
+                  <test-case name="ExcelSharpTests.SheetTests.Sheet_GetRange_ReturnsArrayOfValuesInRange" executed="True" result="Success" success="True" time="0.037" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="TableSheetFactoryTests" executed="True" result="Success" success="True" time="2.215" asserts="0">
+              <test-suite type="TestFixture" name="TableSheetFactoryTests" executed="True" result="Success" success="True" time="2.103" asserts="0">
                 <categories>
                   <category name="Sheet Factory" />
                 </categories>
                 <results>
                   <test-case name="ExcelSharpTests.TableSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithSheet_MakesNewSheet" executed="True" result="Success" success="True" time="0.028" asserts="1" />
-                  <test-case name="ExcelSharpTests.TableSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithSheet_NewSheetHasTableTools" executed="True" result="Success" success="True" time="0.020" asserts="1" />
-                  <test-case name="ExcelSharpTests.TableSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithSheet_NewSheetHasTableWriter" executed="True" result="Success" success="True" time="0.061" asserts="1" />
+                  <test-case name="ExcelSharpTests.TableSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithSheet_NewSheetHasTableTools" executed="True" result="Success" success="True" time="0.018" asserts="1" />
+                  <test-case name="ExcelSharpTests.TableSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithSheet_NewSheetHasTableWriter" executed="True" result="Success" success="True" time="0.040" asserts="1" />
                   <test-case name="ExcelSharpTests.TableSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_MakesNewSheet" executed="True" result="Success" success="True" time="0.022" asserts="1" />
-                  <test-case name="ExcelSharpTests.TableSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_NewSheetHasTableTools" executed="True" result="Success" success="True" time="0.015" asserts="1" />
+                  <test-case name="ExcelSharpTests.TableSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_NewSheetHasTableTools" executed="True" result="Success" success="True" time="0.013" asserts="1" />
                   <test-case name="ExcelSharpTests.TableSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_NewSheetHasTableWriter" executed="True" result="Success" success="True" time="0.014" asserts="1" />
-                  <test-case name="ExcelSharpTests.TableSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_NewSheetNameIsSheet1" executed="True" result="Success" success="True" time="0.040" asserts="1" />
+                  <test-case name="ExcelSharpTests.TableSheetFactoryTests.BaseSheetFactoryTests.SheetFactory_ExecuteWithWorkbook_NewSheetNameIsSheet1" executed="True" result="Success" success="True" time="0.031" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="WorkbookTests" executed="True" result="Success" success="True" time="2.143" asserts="0">
+              <test-suite type="TestFixture" name="WorkbookTests" executed="True" result="Success" success="True" time="2.081" asserts="0">
                 <categories>
                   <category name="Workbook Tests" />
                 </categories>
                 <results>
-                  <test-case name="ExcelSharpTests.WorkbookTests.Workbook_AddSheet_AddsNewSheet" executed="True" result="Success" success="True" time="0.019" asserts="1" />
+                  <test-case name="ExcelSharpTests.WorkbookTests.Workbook_AddSheet_AddsNewSheet" executed="True" result="Success" success="True" time="0.018" asserts="1" />
                   <test-case name="ExcelSharpTests.WorkbookTests.Workbook_GetSheet_ReturnsSheet" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-                  <test-case name="ExcelSharpTests.WorkbookTests.Workbook_RemoveSheet_RemovesSheetAtEnd" executed="True" result="Success" success="True" time="0.035" asserts="1" />
+                  <test-case name="ExcelSharpTests.WorkbookTests.Workbook_RemoveSheet_RemovesSheetAtEnd" executed="True" result="Success" success="True" time="0.037" asserts="1" />
                   <test-case name="ExcelSharpTests.WorkbookTests.Workbook_SelectSheet_SetsActiveSheet" executed="True" result="Success" success="True" time="0.003" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="WriterTests" executed="True" result="Success" success="True" time="3.098" asserts="0">
+              <test-suite type="TestFixture" name="WriterTests" executed="True" result="Success" success="True" time="2.803" asserts="0">
                 <categories>
                   <category name="WriterTests" />
                 </categories>
                 <results>
-                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_SetDate_IsDateSetIsTrue" executed="True" result="Success" success="True" time="0.014" asserts="1" />
-                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_Write_SheetDirectoryIsHyperlink" executed="True" result="Success" success="True" time="0.190" asserts="1" />
-                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_Write_SheetHasFirstSubdirectoryAfterFileList" executed="True" result="Success" success="True" time="0.230" asserts="2" />
-                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_WriteWithDate_SheetHasDirectoryAndSearchDate" executed="True" result="Success" success="True" time="0.221" asserts="1" />
+                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_SetDate_IsDateSetIsTrue" executed="True" result="Success" success="True" time="0.015" asserts="1" />
+                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_Write_SheetDirectoryIsHyperlink" executed="True" result="Success" success="True" time="0.151" asserts="1" />
+                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_Write_SheetHasFirstSubdirectoryAfterFileList" executed="True" result="Success" success="True" time="0.125" asserts="2" />
+                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_WriteWithDate_SheetHasDirectoryAndSearchDate" executed="True" result="Success" success="True" time="0.169" asserts="1" />
                   <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_WriteWithDate_SheetOnlyHasFilesCreatedOnDate" executed="True" result="Success" success="True" time="0.055" asserts="1" />
-                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_WriteWithNullDate_SheetHasFilesInDirectory" executed="True" result="Success" success="True" time="0.154" asserts="1" />
-                  <test-case name="ExcelSharpTests.WriterTests.LinkSheetFactory_LinkSheet_SourceIsCurrentDirectory" executed="True" result="Success" success="True" time="0.015" asserts="1" />
+                  <test-case name="ExcelSharpTests.WriterTests.DirectoryLinkWriter_WriteWithNullDate_SheetHasFilesInDirectory" executed="True" result="Success" success="True" time="0.129" asserts="1" />
+                  <test-case name="ExcelSharpTests.WriterTests.LinkSheetFactory_LinkSheet_SourceIsCurrentDirectory" executed="True" result="Success" success="True" time="0.017" asserts="1" />
                 </results>
               </test-suite>
             </results>

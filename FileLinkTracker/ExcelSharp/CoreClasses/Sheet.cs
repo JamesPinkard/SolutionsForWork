@@ -55,8 +55,7 @@ namespace ExcelSharp
                 embedder = value;
                 embedder.worksheet = this.worksheet;
             }
-        }
-        protected NullableTableWriter sheetWriter;
+        }        
 
         public Sheet(Excel._Worksheet worksheet )
         {
@@ -108,8 +107,7 @@ namespace ExcelSharp
         }
 
         
-        private CellGetter cellGetter;
-                
+        private CellGetter cellGetter;                
         private Excel._Worksheet worksheet;
         private IEmbedder embedder;
         private IRemover remover;
