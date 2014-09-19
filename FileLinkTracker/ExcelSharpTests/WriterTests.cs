@@ -50,6 +50,63 @@ namespace ExcelSharpTests
             linkSheet = testFactory.ExecuteMake() as Sheet;
             return linkSheet.Writer as DirectoryLinkWriter;
         }
+        private IEnumerable<string> getFileNames(string directoryPath)
+        {
+            FileInfo[] solutionFiles = getFilesInSolutionDirectory(directoryPath);
+            IEnumerable<string> fileNames = from f in solutionFiles
+                                            select f.Name;
+            return fileNames;
+        }
+        private static FileInfo[] getFilesInSolutionDirectory(string directoryPath)
+        {
+            DirectoryInfo solutionDirectory = new DirectoryInfo(directoryPath);
+            FileInfo[] solutionFiles = solutionDirectory.GetFiles();
+            return solutionFiles;
+        }
+        private List<string> getFilesInSheet(IEnumerable<string> fileNames, int startRow)
+        {
+            List<string> filesInSheet = new List<String>();
+            filesInSheet = linkSheet.GetColumnRange("B", startRow, fileNames.Count<string>() + 1);
+            return filesInSheet;
+        }
+        private void GetSubDirectoryAndSubFilesInSheet()
+        {
+        // Get Files in sheet
+        subFilesInSheet = getFilesInSheet(subFiles, fileCount + 2);
+        subDirectoryInSheet = linkSheet.GetCell(fileCount + 1, 0);
+        }
+        private void SetupSubDirectoryTest()
+        {
+            // Get File Count
+            fileCount = getDirectoryFileCount();
+
+
+            // Get Sub Directories
+            myTestDirectory = getSolutionDirectory();
+            subDirectories = myTestDirectory.GetDirectories();
+            subFiles = getFileNames(subDirectories[0].FullName);
+        }               
+        private int getDirectoryFileCount()
+        {            
+        IEnumerable<string> fileNames = getFileNames(directoryWriter.DirectoryPath);
+        int fileCount = fileNames.Count<string>();
+        return fileCount;
+        }
+        private DirectoryInfo getSolutionDirectory()
+        {
+            DirectoryInfo solutionDirectory = new DirectoryInfo(directoryWriter.DirectoryPath);
+            return solutionDirectory;
+        }
+        private IEnumerable<string> getFileNamesCreatedOnDate(string directoryPath)
+        {
+
+            FileInfo[] solutionFiles = getFilesInSolutionDirectory(directoryPath);
+            IEnumerable<string> fileNames = from f in solutionFiles
+                                            where f.CreationTime.Date == directoryWriter.LinkDate.Date
+                                            select f.Name;
+            return fileNames;
+        }
+
         
         [Test]
         public void LinkSheetFactory_LinkSheet_SourceIsCurrentDirectory()
@@ -95,15 +152,6 @@ namespace ExcelSharpTests
 
             Assert.That(filesInSheet, Is.EquivalentTo(fileNames));
         }
-            private IEnumerable<string> getFileNamesCreatedOnDate(string directoryPath)
-            {
-
-                FileInfo[] solutionFiles = getFilesInSolutionDirectory(directoryPath);
-                IEnumerable<string> fileNames = from f in solutionFiles
-                                                where f.CreationTime.Date == directoryWriter.LinkDate.Date
-                                                select f.Name;
-                return fileNames;
-            }
         
         [Test]
         public void DirectoryLinkWriter_WriteWithNullDate_SheetHasFilesInDirectory()
@@ -117,27 +165,7 @@ namespace ExcelSharpTests
             Assert.That(filesInSheet, Is.EquivalentTo(fileNames));
             Console.WriteLine(directoryWriter.DirectoryPath);
 
-        }
-        
-            private IEnumerable<string> getFileNames(string directoryPath)
-            {
-                FileInfo[] solutionFiles = getFilesInSolutionDirectory(directoryPath);
-                IEnumerable<string> fileNames = from f in solutionFiles
-                                                select f.Name;
-                return fileNames;
-            }
-            private static FileInfo[] getFilesInSolutionDirectory(string directoryPath)
-            {
-                DirectoryInfo solutionDirectory = new DirectoryInfo(directoryPath);
-                FileInfo[] solutionFiles = solutionDirectory.GetFiles();
-                return solutionFiles;
-            }
-            private List<string> getFilesInSheet(IEnumerable<string> fileNames, int startRow)
-            {
-                List<string> filesInSheet = new List<String>();
-                filesInSheet = linkSheet.GetColumnRange("B", startRow, fileNames.Count<string>() + 1);
-                return filesInSheet;
-            }
+        }        
 
         [Test]
         public void DirectoryLinkWriter_Write_SheetHasFirstSubdirectoryAfterFileList()
@@ -153,37 +181,6 @@ namespace ExcelSharpTests
             Assert.That(subDirectoryInSheet, Is.EqualTo(subDirectories[0].FullName));
             Console.WriteLine(directoryWriter.DirectoryPath);
         }
-
-            private void GetSubDirectoryAndSubFilesInSheet()
-        {
-            // Get Files in sheet
-            subFilesInSheet = getFilesInSheet(subFiles, fileCount + 2);
-            subDirectoryInSheet = linkSheet.GetCell(fileCount + 1, 0);
-        }
-
-            private void SetupSubDirectoryTest()
-            {
-                // Get File Count
-                fileCount = getDirectoryFileCount();
-
-
-                // Get Sub Directories
-                myTestDirectory = getSolutionDirectory();
-                subDirectories = myTestDirectory.GetDirectories();
-                subFiles = getFileNames(subDirectories[0].FullName);
-            }
-               
-                private int getDirectoryFileCount()
-            {            
-                IEnumerable<string> fileNames = getFileNames(directoryWriter.DirectoryPath);
-                int fileCount = fileNames.Count<string>();
-                return fileCount;
-            }
-                private DirectoryInfo getSolutionDirectory()
-                {
-                    DirectoryInfo solutionDirectory = new DirectoryInfo(directoryWriter.DirectoryPath);
-                    return solutionDirectory;
-                }
 
         [Test]
         public void DirectoryLinkWriter_Write_SheetDirectoryIsHyperlink()

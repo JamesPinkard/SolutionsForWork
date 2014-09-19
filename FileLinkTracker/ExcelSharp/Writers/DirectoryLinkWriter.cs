@@ -10,10 +10,6 @@ namespace ExcelSharp
     public class DirectoryLinkWriter : LinkWriter
     {
         public string DirectoryPath { get; private set; }        
-        private DirectoryInfo linkSourceDirectory;
-        private int rowIndex = 2;
-        private Excel.Range fileColumn;
-        private Excel.Range directoryColumn;
                 
         public DirectoryLinkWriter(string directoryPath)
         {
@@ -76,7 +72,7 @@ namespace ExcelSharp
             writeFileNames(subFiles);
         }
         
-            private IEnumerable<string> getFileNames(DirectoryInfo directory)
+        private IEnumerable<string> getFileNames(DirectoryInfo directory)
         {
             FileInfo[] linkFiles = directory.GetFiles();
             IEnumerable<string> fileNames;
@@ -95,9 +91,8 @@ namespace ExcelSharp
             }
             
             return fileNames;
-        }
-        
-            private void writeFileNames(IEnumerable<string> fileNames)
+        }        
+        private void writeFileNames(IEnumerable<string> fileNames)
         {            
             
             foreach (var file in fileNames)
@@ -114,9 +109,9 @@ namespace ExcelSharp
             rowIndex++;
         }
 
-
-
-
-
+        private DirectoryInfo linkSourceDirectory;
+        private int rowIndex = 2;
+        private Excel.Range fileColumn;
+        private Excel.Range directoryColumn;
     }
 }
