@@ -21,20 +21,11 @@ namespace Metadata_Writer
                 {"IB", "The code number to designate whether the {0} is active or inactive.[Inactive, 0; Active, 1]"}
             };
 
-            Dictionary<string,string> aqDict = new Dictionary<string,string>()
-            {                
-                {"LYR02", "Woodbine Aquifer"},
-                {"LYR03", "Fredericksburg/Washita Group"},
-                {"LYR04", "Paluxy Aquifer"},
-                {"LYR05", "Glen Rose Aquifer"},
-                {"LYR06", "Hensell Aquifer"},
-                {"LYR07", "Pearsall Aquifer"},
-                {"LYR08", "Lower Wilcox Aquifer"}
-            };
+            Dictionary<string, string> aqDict = Get_BLSY_Dict();
 
             string defSource = "Developed by INTERA Inc. in 2015 based on Northern Trinity GAM; Kelley, V. A., Deeds, N. E., Fryar, D. G., and Nicot, J-P, 2004.  Groundwater Availability Models for the Queen City and Sparta Aquifers,  prepared for the Texas Water Development Board,  prepared by INTERA, Austin, Texas";
 
-            XElement xmlFile = XElement.Load(@"C:\OneDrive - Intera Inc-\Briefcase\Tarrant-Wichita\XML_Examples\NTGM_metadata.xml");
+            XElement xmlFile = XElement.Load(@"C:\OneDrive - Intera Inc-\Briefcase\Tarrant-Wichita\XML_Examples\BLSY_metadata.xml");
 
             XElement xmlFields = xmlFile.Element("eainfo");
             XElement xmlDetails = xmlFields.Element("detailed");
@@ -59,8 +50,55 @@ namespace Metadata_Writer
                 }
             }
 
-            xmlFile.Save(@"C:\OneDrive - Intera Inc-\Briefcase\Tarrant-Wichita\XML_Examples\NTGM_metadata_updated.xml");
+            xmlFile.Save(@"C:\OneDrive - Intera Inc-\Briefcase\Tarrant-Wichita\XML_Examples\BLSY_metadata_updated.xml");
             Console.ReadLine();
+        }
+
+        private static Dictionary<string, string> Get_NCTH_Dict()
+        {
+            Dictionary<string, string> aqDict = new Dictionary<string, string>()
+            {                
+                {"LYR01", "Northeast Region of Nacatoch Aquifer"},
+                {"LYR02", "Nacatoch Aquifer"},
+            };
+            return aqDict;
+        }
+
+        private static Dictionary<string, string> Get_BLSY_Dict()
+        {
+            Dictionary<string, string> aqDict = new Dictionary<string, string>()
+            {                
+                {"LYR01", "Seymour Aquifer"},
+                {"LYR02", "Blaine and Permian Aquifers"},
+            };
+            return aqDict;
+        }
+
+        private static Dictionary<string, string> Get_NTGAM_Dict()
+        {
+            Dictionary<string, string> aqDict = new Dictionary<string, string>()
+            {                
+                {"LYR02", "Woodbine Aquifer"},
+                {"LYR03", "Fredericksburg/Washita Group"},
+                {"LYR04", "Paluxy Aquifer"},
+                {"LYR05", "Glen Rose Aquifer"},
+                {"LYR06", "Hensell Aquifer"},
+                {"LYR07", "Pearsall Aquifer"},
+                {"LYR08", "Hosston Aquifer"}
+            };
+            return aqDict;
+        }
+
+        private static Dictionary<string, string> Get_Paleozoic_Dict()
+        {
+            Dictionary<string, string> aqDict = new Dictionary<string, string>()
+            {                
+                {"LYR01", "Wichita Aquifer"},
+                {"LYR02", "Cisco Bowie Aquifer"},
+                {"LYR03", "Canyon Aquifer"},
+                {"LYR04", "Strawn Aquifer"}
+            };
+            return aqDict;
         }
     }
 }

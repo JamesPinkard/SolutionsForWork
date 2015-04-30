@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ESRI.Configuration xmlns="http://schemas.esri.com/Desktop/AddIns"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    >
+
+  <Name>ArcMapAddin1</Name>
+  <AddInID>{f1fe9dd7-452c-4e3e-bc64-975b4ddaa898}</AddInID>
+  <Description>Type in a description for the add-in.</Description>
+  <Version>1.0</Version>
+  <Image>Images\ArcMapAddin1.png</Image>
+  <Author></Author>
+  <Company></Company>
+  <Date></Date>
+  <Targets>
+    <Target name="Desktop" version="10.1" />
+  </Targets>
+
+
+  <AddIn language="CLR" library="ArcMapAddin1.dll" namespace="ArcMapAddin1">
+
+
+
+
+  </AddIn>
+
+</ESRI.Configuration>

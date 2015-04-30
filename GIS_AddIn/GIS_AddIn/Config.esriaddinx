@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ESRI.Configuration xmlns="http://schemas.esri.com/Desktop/AddIns"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    >
+
+  <Name>GIS_AddIn</Name>
+  <AddInID>{766c2479-00e1-4710-9f1c-a11a2e4076d5}</AddInID>
+  <Description>Type in a description for the add-in.</Description>
+  <Version>1.0</Version>
+  <Image>Images\GIS_AddIn.png</Image>
+  <Author></Author>
+  <Company></Company>
+  <Date></Date>
+  <Targets>
+    <Target name="Desktop" version="10.1" />
+  </Targets>
+
+
+
+
+  <AddIn language="CLR4.0" library="GIS_AddIn.dll" namespace="GIS_AddIn">
+
+
+  </AddIn>
+
+</ESRI.Configuration>
