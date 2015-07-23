@@ -32,6 +32,7 @@
             this.Layers = new System.Windows.Forms.Label();
             this.btnPrintTDS = new System.Windows.Forms.Button();
             this.btnPrintWQ = new System.Windows.Forms.Button();
+            this.btnPrintInfreq = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbLayers
@@ -73,11 +74,22 @@
             this.btnPrintWQ.UseVisualStyleBackColor = true;
             this.btnPrintWQ.Click += new System.EventHandler(this.btnPrintWQ_Click);
             // 
+            // btnPrintInfreq
+            // 
+            this.btnPrintInfreq.Location = new System.Drawing.Point(423, 10);
+            this.btnPrintInfreq.Name = "btnPrintInfreq";
+            this.btnPrintInfreq.Size = new System.Drawing.Size(75, 23);
+            this.btnPrintInfreq.TabIndex = 4;
+            this.btnPrintInfreq.Text = "Print Infreq";
+            this.btnPrintInfreq.UseVisualStyleBackColor = true;
+            this.btnPrintInfreq.Click += new System.EventHandler(this.btnPrintInfreq_Click);
+            // 
             // frmRestaurantsViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(541, 101);
+            this.Controls.Add(this.btnPrintInfreq);
             this.Controls.Add(this.btnPrintWQ);
             this.Controls.Add(this.btnPrintTDS);
             this.Controls.Add(this.Layers);
@@ -96,5 +108,6 @@
         private System.Windows.Forms.Label Layers;
         private System.Windows.Forms.Button btnPrintTDS;
         private System.Windows.Forms.Button btnPrintWQ;
+        private System.Windows.Forms.Button btnPrintInfreq;
     }
 }
